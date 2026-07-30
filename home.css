@@ -1,0 +1,9 @@
+.home {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+}
+
+.home-date {
+  margin: 20px 0;
+}

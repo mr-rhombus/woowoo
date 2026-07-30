@@ -1,0 +1,25 @@
+body {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  font-size: 1.5em;
+}
+
+.card {
+  width: 500px;
+  background-color: #ede8d0;
+  outline: 1px double #cd1c18;
+  outline-width: 3px;
+  outline-offset: -10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-sm {
+  height: 700px;
+}
+
+.title {
+  margin-top: 70px;
+}
