@@ -1,30 +1,38 @@
+@font-face {
+  font-family: "HVM";
+  src: url("assets/fonts/HerrVonMuellerhoff-Regular.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("assets/fonts/Montserrat.woff") format("woff");
+}
+
+@font-face {
+  font-family: "BodoniModa";
+  src: url("assets/fonts/BodoniModa.woff") format("woff");
+}
+
+@font-face {
+  font-family: "com4t";
+  src: url(assets/fonts/com4t.woff) format(woff);
+}
+
 body {
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  font-size: 1.5em;
-  background-color: #36404a;
+  font-size: 1.3em;
+  font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.card {
-  width: 500px;
-  background-image: url(assets/img/parchment.jpg);
-  background-size: 500px;
-  background-position: auto;
-  outline: 1px double #cd1c18;
-  outline-width: 3px;
-  outline-offset: -10px;
+.content {
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-.card-sm {
-  height: 700px;
-}
-
-.title {
-  margin-top: 70px;
+  align-items: left;
+  margin: 0 5%;
+  width: 90%;
+  height: 100%;
 }
 
 .rsvp-btn {
