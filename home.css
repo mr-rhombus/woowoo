@@ -44,7 +44,6 @@
 }
 
 .footer {
-  margin-bottom: 20px;
   color: white;
   font-weight: 300;
   display: flex;
@@ -55,7 +54,8 @@
   transform: translateY(200px);
   position: fixed;
   bottom: 0;
-  width: 90%;
+  width: calc(95% - 20px);
+  margin-bottom: 20px;
 }
 
 .footer-text {
@@ -109,7 +109,7 @@
     scale: 100% 1;
   }
   to {
-    translate: -15px 0;
+    translate: -10px 0;
     scale: 100% 1;
   }
 }
