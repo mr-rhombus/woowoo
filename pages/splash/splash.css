@@ -26,15 +26,6 @@
 }
 
 .title {
-  font-size: 6.5rem;
-  font-family: "Bodoni Moda";
-  font-weight: 100;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 20px;
-  margin-top: 40px;
-  font-weight: 400;
   animation: title-slide-down 2s ease-out forwards;
 }
 
