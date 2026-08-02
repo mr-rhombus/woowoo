@@ -50,6 +50,9 @@ body {
   font-size: 6.5rem;
   font-family: "Bodoni Moda";
   font-weight: 100;
+}
+
+.home-title {
   display: flex;
   flex-direction: row;
   align-items: center;
