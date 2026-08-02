@@ -2,6 +2,10 @@
   background-color: #f2f0ef;
 }
 
+.nav-active {
+  border-bottom: 1px solid black !important;
+}
+
 .title {
   margin: 100px 0 30px 0;
   display: flex;
