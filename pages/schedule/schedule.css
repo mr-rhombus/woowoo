@@ -1,0 +1,53 @@
+.title {
+  margin-bottom: 0;
+}
+
+.day {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20%;
+  margin-top: 50px;
+}
+
+.day-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.tod-title {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-size: 2rem;
+  font-weight: 500;
+  margin-top: 30px;
+  img {
+    height: 2.5rem;
+  }
+}
+
+.event {
+  margin-right: 25%;
+}
+
+.event-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.event-name {
+  font-size: 1.8rem;
+}
+
+.event-date {
+  font-size: 1.1rem;
+}
+
+hr {
+  width: 50px;
+  border: 0.25px solid black;
+  margin-top: 50px;
+}
