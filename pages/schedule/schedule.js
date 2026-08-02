@@ -134,3 +134,13 @@ for (const [day, eventsByTOD] of Object.entries(SCHEDULE)) {
     container.append(hrEl);
   }
 }
+
+// Show "to top" feature if scrolled down far enough
+const toTopEl = document.querySelector(".to-top");
+window.addEventListener("scroll", () => {
+  if (window.scrollY > 300) {
+    toTopEl.style.visibility = "visible";
+  } else {
+    toTopEl.style.visibility = "hidden";
+  }
+});
