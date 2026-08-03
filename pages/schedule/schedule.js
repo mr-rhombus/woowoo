@@ -99,20 +99,15 @@ const SCHEDULE = {
     evening: [
       createEvent("Dinner", "6pm", "8pm", lorem),
       createEvent("Celebration", "8pm", "12am", lorem),
-      createEvent("Late Night Pizza", "12am", "", lorem),
     ],
   },
   "SEPTEMBER 26": {
     morning: [createEvent("Breakfast", "8am", "10am", lorem)],
     afternoon: [
       createEvent("Lunch", "12pm", "2pm", lorem),
-      createEvent("Pool Party", "1pm", "5pm", lorem),
+      createEvent("Pool Party", "1pm", "3pm", lorem),
+      createEvent("Guest Checkout", "4pm", "", lorem),
     ],
-    evening: [createEvent("Dinner", "7pm", "9pm", lorem)],
-  },
-  "SEPTEMBER 27": {
-    morning: [createEvent("Breakfast", "8am", "10am", lorem)],
-    afternoon: [createEvent("Guest Checkout", "12pm", "", lorem)],
   },
 };
 
