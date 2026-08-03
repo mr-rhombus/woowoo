@@ -87,14 +87,12 @@
 }
 
 .footer-arrow:hover {
-  filter: brightness(0) invert(37%) sepia(21%) saturate(1633%) hue-rotate(90deg)
-    brightness(96%) contrast(89%);
+  filter: brightness(0) invert(50%);
   cursor: pointer;
 }
 
 .footer-arrow:active {
-  filter: brightness(0) invert(20%) sepia(21%) saturate(735%) hue-rotate(85deg)
-    brightness(97%) contrast(92%);
+  filter: brightness(0) invert(25%);
 }
 
 @keyframes title-slide-down {
