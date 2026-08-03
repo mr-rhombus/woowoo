@@ -21,13 +21,28 @@
   object-fit: cover;
 }
 
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  margin: 0 5%;
+  width: 90%;
+  height: 100%;
+}
+
 .thin {
   font-weight: 100;
 }
 
+.title-container {
+  position: fixed;
+  top: 0;
+  display: flex;
+  width: 90%;
+}
+
 .title {
   display: flex;
-  flex-direction: row;
   align-items: center;
   gap: 20px;
   margin-top: 40px;
@@ -121,6 +136,9 @@
 }
 
 @media screen and (max-width: 768px) {
+  .title-container {
+    justify-content: center;
+  }
   .title {
     justify-content: center;
     gap: 8px;
