@@ -114,3 +114,32 @@ hr {
     scale: 100% 1;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .day {
+    margin-top: 25px;
+    margin-left: 5%;
+  }
+  .day-title {
+    font-size: 2.1rem;
+  }
+  .tod-title {
+    font-size: 1.6rem;
+  }
+  .event-name {
+    font-size: 1.4rem;
+  }
+  .event {
+    margin-right: 15%;
+  }
+  hr {
+    margin-top: 25px;
+  }
+  .to-top {
+    width: 45px;
+    font-size: 0.9rem;
+    img {
+      height: 20px;
+    }
+  }
+}
