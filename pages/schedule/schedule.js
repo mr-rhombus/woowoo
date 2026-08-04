@@ -81,10 +81,6 @@ function createEvent(name, start, end, details) {
   return eventDiv;
 }
 
-const day1 = createDay("SEPTEMBER 25");
-const todMorning1 = createTOD("morning");
-const morning1Event = createEvent("Event 1", "10am", "11am", lorem);
-
 const SCHEDULE = {
   "SEPTEMBER 24": {
     afternoon: [createEvent("Guest Arrivals", "1pm", "", lorem)],
