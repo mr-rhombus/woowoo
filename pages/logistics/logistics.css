@@ -1,0 +1,23 @@
+.container {
+  margin: 0 20%;
+}
+
+.log-block {
+  margin-bottom: 60px;
+}
+
+.log-block-head {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.log-head-title {
+  font-size: 2.2rem;
+  font-weight: 500;
+}
+
+.log-icon img {
+  height: 40px;
+}
