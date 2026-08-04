@@ -82,11 +82,11 @@ function createEvent(name, start, end, details) {
 }
 
 const SCHEDULE = {
-  "SEPTEMBER 24": {
+  "SEPTEMBER 24, 2027": {
     afternoon: [createEvent("Guest Arrivals", "1pm", "", lorem)],
     evening: [createEvent("Welcome Dinner", "7pm", "9pm", lorem)],
   },
-  "SEPTEMBER 25": {
+  "SEPTEMBER 25, 2027": {
     morning: [createEvent("Breakfast", "8am", "10am", lorem)],
     afternoon: [
       createEvent("Wedding Ceremony", "2pm", "3pm", lorem),
@@ -97,7 +97,7 @@ const SCHEDULE = {
       createEvent("Celebration", "8pm", "12am", lorem),
     ],
   },
-  "SEPTEMBER 26": {
+  "SEPTEMBER 26, 2027": {
     morning: [createEvent("Breakfast", "8am", "10am", lorem)],
     afternoon: [
       createEvent("Lunch", "12pm", "2pm", lorem),
