@@ -141,8 +141,13 @@
     justify-content: center;
     gap: 8px;
     font-size: 3rem;
+    margin-top: 20px;
   }
   .amp {
     font-size: 3.5rem;
+  }
+  .footer-text {
+    flex-direction: column;
+    gap: 2px;
   }
 }
