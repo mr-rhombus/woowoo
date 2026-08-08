@@ -5,7 +5,7 @@ const lorem =
 function createDay(dayTitle, dateDiv, events) {
   const dayDiv = document.createElement("div");
   dayDiv.classList.add("day");
-  dayDiv.id = dayTitle.replace(" ", "").toLowerCase();
+  dayDiv.id = dayTitle.replace(" ", "").replace(", 2027", "").toLowerCase();
 
   const dayTitleDiv = document.createElement("div");
   dayTitleDiv.classList.add("day-title");
