@@ -117,15 +117,13 @@ hr {
 }
 
 @media screen and (max-width: 768px) {
-  .container {
-    margin-right: 12%;
-  }
   .day {
     margin-top: 25px;
     margin-left: 5%;
   }
   .day-title {
     font-size: 2.1rem;
+    margin-right: 10%;
   }
   .tod-title {
     font-size: 1.6rem;
@@ -144,7 +142,7 @@ hr {
     margin-bottom: 5px;
   }
   .event {
-    margin-right: 15%;
+    margin-right: 12%;
   }
   hr {
     margin-top: 25px;
