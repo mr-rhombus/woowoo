@@ -19,4 +19,13 @@
   .container {
     margin: 0 7% 5% 7%;
   }
+  .question {
+    margin-bottom: 35px;
+  }
+  .question-header {
+    margin-bottom: 7px;
+  }
+  .question-title {
+    font-size: 1.6rem;
+  }
 }
