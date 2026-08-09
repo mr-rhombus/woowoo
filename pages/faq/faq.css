@@ -1,5 +1,5 @@
 .container {
-  margin: 0 15% 15% 15%;
+  margin: 0 15%;
 }
 
 .question {
@@ -17,7 +17,7 @@
 
 @media screen and (max-width: 768px) {
   .container {
-    margin: 0 7% 5% 7%;
+    margin: 0 7%;
   }
   .question {
     margin-bottom: 35px;
