@@ -26,4 +26,17 @@
   .container {
     margin: 0 7% 5% 7%;
   }
+  .log-block {
+    margin-bottom: 40px;
+  }
+  .log-block-head {
+    gap: 10px;
+    margin-bottom: 5px;
+  }
+  .log-head-title {
+    font-size: 1.6rem;
+  }
+  .log-icon img {
+    height: 30px;
+  }
 }
