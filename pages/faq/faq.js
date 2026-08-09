@@ -2,10 +2,9 @@ const container = document.querySelector(".container");
 const lorem =
   "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Fuga vero harum magni quibusdam eligendi aspernatur qui ullam minus veritatis hic ratione, provident dolorem? Consequuntur atque dignissimos alias. Sequi, dicta repudiandae.";
 
-function createQuestion(question, answer, questionNum) {
+function createQuestion(question, answer) {
   const questionEl = document.createElement("div");
   questionEl.classList.add("question");
-  questionEl.id = questionNum;
 
   const qHeaderEl = document.createElement("div");
   qHeaderEl.classList.add("question-header");
@@ -34,6 +33,6 @@ const QUESTIONS = [
   { question: "boo", answer: "lol i got u" },
 ];
 
-QUESTIONS.forEach((q, i) => {
-  container.appendChild(createQuestion(q.question, q.answer, i));
+QUESTIONS.forEach((q) => {
+  container.appendChild(createQuestion(q.question, q.answer));
 });
