@@ -6,9 +6,39 @@
     <title>Ashley and Max</title>
     <link
       rel="shortcut icon"
-      href="assets/img/heart-icon.svg"
+      href="../../assets/img/heart-icon.svg"
       type="image/x-icon"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Kapakana:wght@300..400&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../../style.css" />
+    <link rel="stylesheet" href="../pages.css" />
+    <link rel="stylesheet" href="rsvp.css" />
+    <script src="../pages.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <div class="nav">
+      <ul>
+        <li>
+          <a href="../../pages/home/home.html">home</a>
+        </li>
+        <li class="nav-active"><a href="../rsvp/rsvp.html">rsvp</a></li>
+        <li><a href="../schedule/schedule.html">schedule</a></li>
+        <li><a href="../logistics/logistics.html">logistics</a></li>
+        <li><a href="../faq/faq.html">faq</a></li>
+      </ul>
+    </div>
+    <div class="container">
+      <div class="title">RSVP</div>
+      <form action="" method="get" class="findParty">
+        <label for="lastName">Guest Last Name</label>
+        <input type="text" name="lastName" id="lastName" />
+        <button type="submit">Find Party</button>
+      </form>
+    </div>
+  </body>
 </html>
