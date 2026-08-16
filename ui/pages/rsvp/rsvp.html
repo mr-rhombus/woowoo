@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../pages.css" />
     <link rel="stylesheet" href="rsvp.css" />
     <script src="../pages.js" defer></script>
+    <script src="rsvp.js" defer></script>
   </head>
   <body>
     <div class="nav">
@@ -34,10 +35,11 @@
     </div>
     <div class="container">
       <div class="title">RSVP</div>
-      <form action="" method="get" class="findParty">
+      <form>
         <label for="lastName">Guest Last Name</label>
-        <input type="text" name="lastName" id="lastName" />
-        <button type="submit">Find Party</button>
+        <input type="text" name="lastName" id="lastName" autofocus />
+        <button class="findPartyBtn">Find Party</button>
+        <button type="submit" disabled>RSVP</button>
       </form>
     </div>
   </body>
