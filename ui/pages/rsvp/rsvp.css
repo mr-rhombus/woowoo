@@ -10,6 +10,7 @@ form {
   }
 
   input[type="text"] {
+    font-size: 0.9rem;
     padding: 5px;
     text-align: center;
     height: 30px;
@@ -68,4 +69,53 @@ fieldset {
 
 #rsvp {
   display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+
+  form {
+    width: 70%;
+
+    label {
+      font-size: 1rem;
+      margin-left: 15px;
+    }
+
+    input[type="text"] {
+      padding: 2px;
+      text-align: center;
+      height: 30px;
+      border-radius: 30px;
+      border: 1px solid black;
+      font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
+      margin-bottom: 20px;
+    }
+  }
+
+  .guests legend {
+    font-size: 1.2rem;
+  }
+
+  .party {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .guest {
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: 0.8rem;
+    }
+  }
+
+  .guestResponse {
+    display: flex;
+    margin: 5px 0;
+  }
 }
