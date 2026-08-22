@@ -5,8 +5,12 @@ findPartyBtn.addEventListener("click", renderParties);
 
 const guestsDiv = document.querySelector(".guests");
 
+const rsvpBtn = document.getElementById("rsvp");
+
 async function renderParties(event) {
   event.preventDefault();
+
+  guestsDiv.replaceChildren();
 
   const lastNameElement = document.getElementById("lastName");
   const lastNameVal = lastNameElement.value.trim();
@@ -33,6 +37,15 @@ async function renderParties(event) {
       )[0].last_name;
       guestsDiv.appendChild(createParty(partyLastName, partyGuests));
     });
+
+    if (result.guests.length > 0) {
+      rsvpBtn.disabled = false;
+    } else {
+      noGuestsFoundDiv = document.createElement("div");
+      noGuestsFoundDiv.classList.add("text");
+      noGuestsFoundDiv.textContent = `No guests found with the last name "${lastNameVal}"`;
+      guestsDiv.appendChild(noGuestsFoundDiv);
+    }
   } catch (error) {
     console.error("Error:", error);
   }
