@@ -1,6 +1,6 @@
 const baseUrl = "http://localhost:8000";
 
-const findPartyBtn = document.querySelector(".findPartyBtn");
+const findPartyBtn = document.getElementById("findPartyBtn");
 findPartyBtn.addEventListener("click", renderParties);
 
 const guestsDiv = document.querySelector(".guests");
@@ -39,7 +39,7 @@ async function renderParties(event) {
     });
 
     if (result.guests.length > 0) {
-      rsvpBtn.disabled = false;
+      rsvpBtn.style.display = "block";
     } else {
       noGuestsFoundDiv = document.createElement("div");
       noGuestsFoundDiv.classList.add("text");
