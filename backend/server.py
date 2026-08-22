@@ -38,15 +38,6 @@ def find_matching_guests(payload: dict[str, str]) -> dict[str, list[Guest]]:
         dict[str, list[Guest]]: The list of all related guests
     """
     guests = PG_DB.get_party_guests(payload["last_name"])
-    guests = [
-        Guest.model_validate(
-            {
-                "full_name": guest[0],
-                "first_name": guest[1],
-                "last_name": guest[2],
-                "group_id": guest[3],
-            }
-        )
-        for guest in guests
-    ]
+    field_names = list(Guest.model_fields.keys())
+    guests = [Guest.model_validate(dict(zip(field_names, guest))) for guest in guests]
     return {"guests": guests}

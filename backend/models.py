@@ -6,3 +6,4 @@ class Guest(BaseModel):
     first_name: str
     last_name: str
     group_id: int
+    rsvp: str | None
