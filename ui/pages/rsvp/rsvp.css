@@ -44,6 +44,7 @@ input[type="radio"] {
 
 .guests {
   width: 75%;
+  text-align: center;
 
   legend {
     font-size: 1.5rem;

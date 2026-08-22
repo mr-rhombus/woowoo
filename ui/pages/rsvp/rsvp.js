@@ -65,7 +65,12 @@ async function updateRsvp(event) {
       body: JSON.stringify(Object.fromEntries(formData)),
     });
 
-    // success msg
+    guestsDiv.replaceChildren();
+    rsvpBtn.style.display = "none";
+
+    const successMsgDiv = document.createElement("div");
+    successMsgDiv.textContent = "Successfully updated RSVP status!";
+    guestsDiv.appendChild(successMsgDiv);
   } catch (error) {
     console.error("Error:", error);
   }
