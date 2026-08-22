@@ -52,7 +52,12 @@ class PGHandler:
 
     @connect
     def update_rsvp_status(self, payload: dict[str, str], cur: psycopg.Cursor) -> None:
-        """TODO"""
+        """Update guest RSVP status.
+
+        Args:
+            payload (dict[str, str]): The guest names and their RSVP statuses
+            cur (psycopg.Cursor): An object to send commands to the PG DB session
+        """
         _sql = f"""
         UPDATE guests as t
         SET rsvp = j.value

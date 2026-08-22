@@ -47,5 +47,9 @@ def find_matching_guests(payload: dict[str, str]) -> dict[str, list[Guest]]:
 
 @app.post("/api/update_rsvp")
 def update_rsvp(payload: dict[str, str]):
-    """TODO"""
+    """Update guest RSVP status in the database
+
+    Args:
+        payload (dict[str, str]): The payload mapping guest names to their RSVP status
+    """
     PG_DB.update_rsvp_status(payload)
