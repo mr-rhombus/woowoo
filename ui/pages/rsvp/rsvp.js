@@ -69,6 +69,7 @@ async function updateRsvp(event) {
     rsvpBtn.style.display = "none";
 
     const successMsgDiv = document.createElement("div");
+    successMsgDiv.classList.add("text-center");
     successMsgDiv.textContent = "Successfully updated RSVP status!";
     guestsDiv.appendChild(successMsgDiv);
   } catch (error) {
