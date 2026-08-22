@@ -41,3 +41,9 @@ def find_matching_guests(payload: dict[str, str]) -> dict[str, list[Guest]]:
     field_names = list(Guest.model_fields.keys())
     guests = [Guest.model_validate(dict(zip(field_names, guest))) for guest in guests]
     return {"guests": guests}
+
+
+@app.post("/api/update_rsvp")
+def update_rsvp(payload: dict[str, str]):
+    """TODO"""
+    PG_DB.update_rsvp_status(payload)

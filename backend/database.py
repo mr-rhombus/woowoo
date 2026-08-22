@@ -1,4 +1,5 @@
 import functools
+import json
 
 import psycopg
 
@@ -48,3 +49,14 @@ class PGHandler:
         """
         cur.execute(_sql)
         return cur.fetchall()
+
+    @connect
+    def update_rsvp_status(self, payload: dict[str, str], cur: psycopg.Cursor) -> None:
+        """TODO"""
+        _sql = f"""
+        UPDATE guests as t
+        SET rsvp = j.value
+        FROM JSON_EACH_TEXT('{json.dumps(payload)}'::json) as j(key, value)
+        WHERE t.full_name = j.key;
+        """
+        cur.execute(_sql)

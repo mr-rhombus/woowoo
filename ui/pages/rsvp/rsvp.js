@@ -6,6 +6,7 @@ findPartyBtn.addEventListener("click", renderParties);
 const guestsDiv = document.querySelector(".guests");
 
 const rsvpBtn = document.getElementById("rsvp");
+rsvpBtn.addEventListener("click", updateRsvp);
 
 async function renderParties(event) {
   event.preventDefault();
@@ -51,6 +52,25 @@ async function renderParties(event) {
   }
 }
 
+async function updateRsvp(event) {
+  event.preventDefault();
+
+  const partyForm = document.getElementById("single-party-form");
+  const formData = new FormData(partyForm);
+
+  try {
+    const response = await fetch(`${baseUrl}/api/update_rsvp`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(Object.fromEntries(formData)),
+    });
+
+    // success msg
+  } catch (error) {
+    console.error("Error:", error);
+  }
+}
+
 function createParty(partyName, partyId, guestData, simple = false) {
   const fieldset = document.createElement("fieldset");
 
@@ -58,6 +78,7 @@ function createParty(partyName, partyId, guestData, simple = false) {
   legend.textContent = partyName;
 
   const partyForm = document.createElement("form");
+  partyForm.id = "single-party-form";
   if (simple) {
     partyForm.classList.add("party-simple");
   } else {
@@ -120,13 +141,14 @@ function createResponseRadio(guestName, responseOption, actualResponse) {
 
   const radioInput = document.createElement("input");
   radioInput.type = "radio";
-  radioInput.name = guestName.replace(" ", "_");
+  radioInput.name = guestName;
 
   const radioLabel = document.createElement("label");
 
   switch (responseOption.toLowerCase()) {
     case "y":
       radioInput.id = radioInput.name + "_y";
+      radioInput.value = "y";
       radioLabel.htmlFor = radioInput.id;
       radioLabel.textContent = "Will Attend";
       if (actualResponse && actualResponse.toLowerCase() === "y") {
@@ -135,6 +157,7 @@ function createResponseRadio(guestName, responseOption, actualResponse) {
       break;
     case "n":
       radioInput.id = radioInput.name + "_n";
+      radioInput.value = "n";
       radioLabel.htmlFor = radioInput.id;
       radioLabel.textContent = "Will Not Attend";
       if (actualResponse && actualResponse.toLowerCase() === "n") {
