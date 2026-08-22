@@ -45,7 +45,7 @@ class PGHandler:
             WHERE group_id IN (
                 SELECT group_id
                 FROM guests
-                WHERE LOWER(last_name) LIKE '%{last_name}%');
+                WHERE LOWER(last_name) LIKE '%{last_name.lower()}%');
         """
         cur.execute(_sql)
         return cur.fetchall()
