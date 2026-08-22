@@ -121,6 +121,15 @@ fieldset {
     }
   }
 
+  fieldset {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    /* justify-content: space-between;
+    align-items: center; */
+  }
+
   .guests legend {
     font-size: 1.2rem;
   }
@@ -149,5 +158,12 @@ fieldset {
   .guestResponse {
     display: flex;
     margin: 5px 0;
+  }
+
+  .select-party-btn {
+    width: 100%;
+    height: 30px;
+    border-radius: 8px;
+    margin-top: 10px;
   }
 }
