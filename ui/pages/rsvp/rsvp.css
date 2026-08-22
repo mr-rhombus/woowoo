@@ -31,6 +31,13 @@ form {
   justify-content: center;
 }
 
+.party {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 5px;
+}
+
 .guests {
   width: 75%;
 
@@ -42,6 +49,25 @@ form {
 
 fieldset {
   margin-bottom: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.select-party-btn {
+  width: 120px;
+  height: 40px;
+  color: #f2f0ef;
+  background-color: #3b3430;
+  border: 1px solid #3b3430;
+  border-radius: 10px;
+  font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.select-party-btn:hover {
+  background-color: black;
 }
 
 .guest {
@@ -97,6 +123,12 @@ fieldset {
 
   .guests legend {
     font-size: 1.2rem;
+  }
+
+  .party-simple {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
   }
 
   .party {

@@ -35,12 +35,12 @@ async function renderParties(event) {
       const partyLastName = partyGuests.sort((a, b) =>
         b.last_name.localeCompare(a.lastName),
       )[0].last_name;
-      guestsDiv.appendChild(createParty(partyLastName, partyGuests));
+      guestsDiv.appendChild(
+        createParty(partyLastName, partyId, partyGuests, (simple = true)),
+      );
     });
 
-    if (result.guests.length > 0) {
-      rsvpBtn.style.display = "block";
-    } else {
+    if (result.guests.length == 0) {
       noGuestsFoundDiv = document.createElement("div");
       noGuestsFoundDiv.classList.add("text");
       noGuestsFoundDiv.textContent = `No guests found with the last name "${lastNameVal}"`;
@@ -51,41 +51,60 @@ async function renderParties(event) {
   }
 }
 
-function createParty(partyName, guestData) {
+function createParty(partyName, partyId, guestData, simple = false) {
   const fieldset = document.createElement("fieldset");
 
   const legend = document.createElement("legend");
   legend.textContent = partyName;
 
   const partyDiv = document.createElement("div");
-  partyDiv.classList.add("party");
+  if (simple) {
+    partyDiv.classList.add("party-simple");
+  } else {
+    partyDiv.classList.add("party");
+  }
 
   fieldset.appendChild(legend);
 
   guestData.forEach((guest) => {
-    partyDiv.appendChild(createGuest(guest.full_name, guest.rsvp));
+    partyDiv.appendChild(
+      createGuest(guest.full_name, guest.rsvp, (simple = simple)),
+    );
   });
   fieldset.appendChild(partyDiv);
+
+  const selectPartyBtn = document.createElement("button");
+  selectPartyBtn.classList.add("select-party-btn");
+  selectPartyBtn.id = partyId;
+  selectPartyBtn.textContent = "Select Party";
+  selectPartyBtn.addEventListener("click", (e) =>
+    renderPartyFull(e, partyName, partyId, guestData),
+  );
+
+  if (simple) {
+    fieldset.appendChild(selectPartyBtn);
+  }
 
   return fieldset;
 }
 
-function createGuest(name, response) {
+function createGuest(name, response = null, simple = true) {
   const guestDiv = document.createElement("div");
   guestDiv.classList.add("guest");
 
   const nameDiv = document.createElement("div");
-  nameDiv.classList.add("guestName");
   nameDiv.textContent = name;
 
-  const responseDiv = document.createElement("div");
-  responseDiv.classList.add("guestResponse");
-
-  responseDiv.appendChild(createResponseRadio(name, "y", response));
-  responseDiv.appendChild(createResponseRadio(name, "n", response));
-
   guestDiv.appendChild(nameDiv);
-  guestDiv.appendChild(responseDiv);
+
+  if (!simple) {
+    const responseDiv = document.createElement("div");
+    responseDiv.classList.add("guestResponse");
+
+    guestDiv.appendChild(responseDiv);
+    responseDiv.appendChild(createResponseRadio(name, "y", response));
+    responseDiv.appendChild(createResponseRadio(name, "n", response));
+  }
 
   return guestDiv;
 }
@@ -123,4 +142,12 @@ function createResponseRadio(guestName, responseOption, actualResponse) {
   responseDiv.appendChild(radioLabel);
 
   return responseDiv;
+}
+
+function renderPartyFull(event, partyLastName, partyId, partyGuests) {
+  guestsDiv.replaceChildren();
+
+  guestsDiv.appendChild(createParty(partyLastName, partyId, partyGuests));
+
+  rsvpBtn.style.display = "block";
 }
