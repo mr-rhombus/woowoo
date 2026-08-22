@@ -57,21 +57,21 @@ function createParty(partyName, partyId, guestData, simple = false) {
   const legend = document.createElement("legend");
   legend.textContent = partyName;
 
-  const partyDiv = document.createElement("div");
+  const partyForm = document.createElement("form");
   if (simple) {
-    partyDiv.classList.add("party-simple");
+    partyForm.classList.add("party-simple");
   } else {
-    partyDiv.classList.add("party");
+    partyForm.classList.add("party");
   }
 
   fieldset.appendChild(legend);
 
   guestData.forEach((guest) => {
-    partyDiv.appendChild(
+    partyForm.appendChild(
       createGuest(guest.full_name, guest.rsvp, (simple = simple)),
     );
   });
-  fieldset.appendChild(partyDiv);
+  fieldset.appendChild(partyForm);
 
   const selectPartyBtn = document.createElement("button");
   selectPartyBtn.classList.add("select-party-btn");
@@ -89,6 +89,9 @@ function createParty(partyName, partyId, guestData, simple = false) {
 }
 
 function createGuest(name, response = null, simple = true) {
+  const guestFieldset = document.createElement("fieldset");
+  guestFieldset.classList.add("guest-fieldset");
+
   const guestDiv = document.createElement("div");
   guestDiv.classList.add("guest");
 
@@ -106,7 +109,9 @@ function createGuest(name, response = null, simple = true) {
     responseDiv.appendChild(createResponseRadio(name, "n", response));
   }
 
-  return guestDiv;
+  guestFieldset.appendChild(guestDiv);
+
+  return guestFieldset;
 }
 
 function createResponseRadio(guestName, responseOption, actualResponse) {

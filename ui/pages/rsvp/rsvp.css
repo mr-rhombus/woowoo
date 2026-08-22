@@ -1,4 +1,4 @@
-form {
+#findParty {
   display: flex;
   flex-direction: column;
   width: 40%;
@@ -6,7 +6,6 @@ form {
 
   label {
     font-size: 1rem;
-    margin-left: 15px;
   }
 
   input[type="text"] {
@@ -19,6 +18,10 @@ form {
     font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
     margin-bottom: 20px;
   }
+}
+
+input[type="radio"] {
+  margin: 0 5px 0 0;
 }
 
 .container {
@@ -73,10 +76,17 @@ fieldset {
 .guest {
   display: flex;
   justify-content: space-between;
+  width: 100%;
 
   label {
     font-size: 1.1rem;
   }
+}
+
+.guest-fieldset {
+  border: none;
+  margin: 0;
+  padding: 0;
 }
 
 .guestResponse {
@@ -93,6 +103,11 @@ fieldset {
   margin-bottom: 40px;
 }
 
+.radioResponse {
+  display: flex;
+  align-items: center;
+}
+
 #rsvp {
   display: none;
 }
@@ -107,7 +122,6 @@ fieldset {
 
     label {
       font-size: 1rem;
-      margin-left: 15px;
     }
 
     input[type="text"] {
@@ -126,8 +140,6 @@ fieldset {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    /* justify-content: space-between;
-    align-items: center; */
   }
 
   .guests legend {
