@@ -1,5 +1,5 @@
 const passwordInput = document.getElementById("pwd");
-const submitBtn = document.getElementByid("pwdSubmitBtn");
+const submitBtn = document.getElementById("pwdSubmitBtn");
 
 function checkPassword(event) {
   event.preventDefault();
