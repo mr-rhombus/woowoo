@@ -24,17 +24,17 @@ function createTOD(tod) {
   switch (tod.toLowerCase()) {
     case "morning":
       todTimeDiv.textContent = "Morning";
-      todImg.src = "/static/assets/img/sunrise.svg";
+      todImg.src = "/ui/assets/img/sunrise.svg";
       todImg.alt = "Sunrise line drawing";
       break;
     case "afternoon":
       todTimeDiv.textContent = "Afternoon";
-      todImg.src = "/static/assets/img/sun.svg";
+      todImg.src = "/ui/assets/img/sun.svg";
       todImg.alt = "Sun line drawing";
       break;
     case "evening":
       todTimeDiv.textContent = "Evening";
-      todImg.src = "/static/assets/img/moon-stars.svg";
+      todImg.src = "/ui/assets/img/moon-stars.svg";
       todImg.alt = "Moon and stars line drawing";
       break;
     default:

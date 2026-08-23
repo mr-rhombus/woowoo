@@ -3,6 +3,6 @@ const bgImage = document.querySelector(".scroll-background");
 const footerThinEl = document.querySelector(".footer-text > .thin");
 
 if (viewportWidth <= 768) {
-  bgImage.src = "/static/assets/img/bg1-color-tall-mobile-less-sky.jpeg";
+  bgImage.src = "/ui/assets/img/bg1-color-tall-mobile-less-sky.jpeg";
   footerThinEl.textContent = "";
 }

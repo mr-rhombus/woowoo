@@ -18,7 +18,7 @@ function createLogistic(title, imgName, content) {
   logHeadIconDiv.classList.add("log-icon");
 
   const logHeadIconImg = document.createElement("img");
-  logHeadIconImg.src = "/static/assets/img/" + imgName;
+  logHeadIconImg.src = "/ui/assets/img/" + imgName;
   logHeadIconDiv.appendChild(logHeadIconImg);
 
   logHeadDiv.appendChild(logHeadTitle);
