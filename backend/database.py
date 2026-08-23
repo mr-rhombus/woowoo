@@ -30,6 +30,8 @@ class PGHandler:
 
     @connect
     def get_party_guests(self, last_name: str, cur: psycopg.Cursor) -> list[tuple[str]]:
+        # TODO: require full name
+        # TODO: match partial name (ex. matt miller should match matthew miller)
         """Get data for all guests with the provided last name
 
         Args:

@@ -1,7 +1,9 @@
 import os
 
 from dotenv import load_dotenv
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from database import PGHandler
@@ -14,7 +16,13 @@ app = FastAPI()
 origins = [
     "http://localhost:5500",
     "http://127.0.0.1:5500",
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
 ]
+
+UI_DIR = os.path.join(os.path.dirname(__file__), "..", "ui")
+
+app.mount("/", StaticFiles(directory=UI_DIR, html=True), name="ui")
 
 PG_DB = PGHandler(os.getenv("PG_URL"))
 
@@ -25,6 +33,24 @@ app.add_middleware(
     allow_methods=["*"],  # Crucial: Allows POST, OPTIONS, GET, etc.
     allow_headers=["*"],
 )
+
+
+@app.get("/")
+async def serve_home():
+    return FileResponse(os.path.join(UI_DIR, "index.html"))
+
+
+@app.get("/pages/{folder_name}/{file_name}")
+async def serve_page(folder_name: str, file_name: str):
+    safe_folder = os.path.basename(folder_name)
+    safe_file = os.path.basename(file_name)
+
+    file_path = os.path.join(UI_DIR, "pages", safe_folder, safe_file)
+
+    if os.path.exists(file_path):
+        return FileResponse(file_path)
+
+    raise HTTPException(status_code=404, detail="Page not found")
 
 
 @app.post("/api/lastName")
