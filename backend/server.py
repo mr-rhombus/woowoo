@@ -6,8 +6,8 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 
-from database import PGHandler
-from models import Guest
+from backend.database import PGHandler
+from backend.models import Guest
 
 load_dotenv()
 
