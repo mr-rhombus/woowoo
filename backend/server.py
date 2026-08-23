@@ -22,7 +22,7 @@ origins = [
 
 UI_DIR = os.path.join(os.path.dirname(__file__), "..", "ui")
 
-app.mount("/", StaticFiles(directory=UI_DIR, html=True), name="ui")
+app.mount("/ui", StaticFiles(directory=UI_DIR, html=True), name="ui")
 
 PG_DB = PGHandler(os.getenv("PG_URL"))
 
