@@ -123,9 +123,12 @@ fieldset {
   }
 
   #findParty {
+    width: 80%;
+
     label {
       margin: 0;
-      text-align: center;
+      margin-left: 15px;
+      font-size: 0.9rem;
     }
   }
 
