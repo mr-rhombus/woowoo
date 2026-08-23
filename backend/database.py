@@ -29,25 +29,31 @@ class PGHandler:
         return wrapper
 
     @connect
-    def get_party_guests(self, last_name: str, cur: psycopg.Cursor) -> list[tuple[str]]:
-        # TODO: require full name
-        # TODO: match partial name (ex. matt miller should match matthew miller)
-        """Get data for all guests with the provided last name
+    def get_party_guests(self, full_name: str, cur: psycopg.Cursor) -> list[tuple[str]]:
+        """Get data for all guests associated with the provided full name.
 
         Args:
-            last_name (str): A guest's last name
+            last_name (str): A guest's full name
             cur (psycopg.Cursor): An object to send commands to the PG DB session
 
         Returns:
-            list[tuple[str]]: Information for guests associated with the provided last name
+            list[tuple[str]]: Information for guests associated with the provided full name
         """
+        name_split = full_name.split()
+        fn = name_split[0]
+        ln = " ".join(name_split[1:])
         _sql = f"""
             SELECT *
             FROM guests
             WHERE group_id IN (
                 SELECT group_id
                 FROM guests
-                WHERE LOWER(last_name) LIKE '%{last_name.lower()}%');
+                WHERE LOWER(last_name) LIKE '%{ln.lower()}%'
+                AND (
+                    '{fn.lower()}' LIKE CONCAT('%', LOWER(first_name), '%')
+                    OR LOWER(first_name) LIKE '%{fn.lower()}%'
+                )    
+            );
         """
         cur.execute(_sql)
         return cur.fetchall()

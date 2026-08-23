@@ -13,17 +13,17 @@ async function renderParties(event) {
 
   guestsDiv.replaceChildren();
 
-  const lastNameElement = document.getElementById("lastName");
-  const lastNameVal = lastNameElement.value.trim();
-  const lastNameData = {
-    last_name: lastNameVal,
+  const fullNameElement = document.getElementById("fullName");
+  const fullNameVal = fullNameElement.value.trim();
+  const fullNameData = {
+    full_name: fullNameVal,
   };
 
   try {
-    const response = await fetch(`${baseUrl}/api/lastName`, {
+    const response = await fetch(`${baseUrl}/api/find_guests`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(lastNameData),
+      body: JSON.stringify(fullNameData),
     });
     const result = await response.json();
 
@@ -44,7 +44,7 @@ async function renderParties(event) {
     if (result.guests.length == 0) {
       noGuestsFoundDiv = document.createElement("div");
       noGuestsFoundDiv.classList.add("text");
-      noGuestsFoundDiv.textContent = `No guests found with the last name "${lastNameVal}"`;
+      noGuestsFoundDiv.textContent = `No guests found with a name matching "${fullNameVal}"`;
       guestsDiv.appendChild(noGuestsFoundDiv);
     }
   } catch (error) {
