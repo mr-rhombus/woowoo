@@ -53,6 +53,18 @@ async def serve_page(folder_name: str, file_name: str):
     raise HTTPException(status_code=404, detail="Page not found")
 
 
+@app.get("/{page_name}")
+async def serve_page_simple(page_name: str):
+    safe_page = os.path.basename(page_name)
+
+    file_path = os.path.join(UI_DIR, "pages", safe_page, safe_page + ".html")
+
+    if os.path.exists(file_path):
+        return FileResponse(file_path)
+
+    raise HTTPException(status_code=404, detail="Page not found")
+
+
 @app.get("/admin")
 async def serve_admin_page():
     return FileResponse(os.path.join(UI_DIR, "pages", "admin", "admin.html"))
