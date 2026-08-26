@@ -1,3 +1,4 @@
+import json
 import os
 
 from dotenv import load_dotenv
@@ -7,7 +8,7 @@ from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.database import PGHandler
-from backend.models import Guest
+from backend.models import Guest, PasswordRequest
 
 load_dotenv()
 
@@ -68,6 +69,12 @@ async def serve_page_simple(page_name: str):
 @app.get("/admin")
 async def serve_admin_page():
     return FileResponse(os.path.join(UI_DIR, "pages", "admin", "admin.html"))
+
+
+@app.post("/api/password/{page}")
+def password_is_valid(page: str, payload: PasswordRequest):
+    passwords = json.loads(os.getenv("PASSWORDS"))
+    return passwords[page] == payload.password
 
 
 @app.post("/api/find_guests")

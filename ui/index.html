@@ -11,10 +11,11 @@
     />
     <link rel="stylesheet" href="/ui/style.css" />
     <link rel="stylesheet" href="/ui/pages/password/password.css" />
-    <script src="/ui/pages/password/password.js" defer></script>
+    <script src="/ui/pages/pages.js" defer></script>
+    <script type="module" src="/ui/pages/password/password.js" defer></script>
   </head>
   <body>
-    <form onsubmit="return checkPassword(event);">
+    <form id="passwordForm">
       <input
         type="password"
         name="pwd"

@@ -7,3 +7,7 @@ class Guest(BaseModel):
     last_name: str
     group_id: int
     rsvp: str | None
+
+
+class PasswordRequest(BaseModel):
+    password: str
