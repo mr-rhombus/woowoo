@@ -53,6 +53,11 @@ async def serve_page(folder_name: str, file_name: str):
     raise HTTPException(status_code=404, detail="Page not found")
 
 
+@app.get("/admin")
+async def serve_admin_page():
+    return FileResponse(os.path.join(UI_DIR, "pages", "admin", "admin.html"))
+
+
 @app.post("/api/find_guests")
 def find_matching_guests(payload: dict[str, str]) -> dict[str, list[Guest]]:
     """Find all guests associated with a user-provided last names.
@@ -66,6 +71,19 @@ def find_matching_guests(payload: dict[str, str]) -> dict[str, list[Guest]]:
     if payload["full_name"] == "":
         return {"guests": []}
     guests = PG_DB.get_party_guests(payload["full_name"])
+    field_names = list(Guest.model_fields.keys())
+    guests = [Guest.model_validate(dict(zip(field_names, guest))) for guest in guests]
+    return {"guests": guests}
+
+
+@app.get("/api/get_all_guests")
+def get_all_guests() -> dict[str, list[Guest]]:
+    """Get information about all guests.
+
+    Returns:
+        dict[str, list[Guest]]: The list of all guests
+    """
+    guests = PG_DB.get_all_guests()
     field_names = list(Guest.model_fields.keys())
     guests = [Guest.model_validate(dict(zip(field_names, guest))) for guest in guests]
     return {"guests": guests}

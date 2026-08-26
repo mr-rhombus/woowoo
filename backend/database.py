@@ -59,6 +59,20 @@ class PGHandler:
         return cur.fetchall()
 
     @connect
+    def get_all_guests(self, cur: psycopg.Cursor) -> list[tuple[str]]:
+        """Return information about all guests.
+
+        Args:
+            cur (psycopg.Cursor): An object to send commands to the PG DB session
+
+        Returns:
+            list[tuple[str]]: All information about all guests
+        """
+        _sql = "SELECT * FROM guests"
+        cur.execute(_sql)
+        return cur.fetchall()
+
+    @connect
     def update_rsvp_status(self, payload: dict[str, str], cur: psycopg.Cursor) -> None:
         """Update guest RSVP status.
 
