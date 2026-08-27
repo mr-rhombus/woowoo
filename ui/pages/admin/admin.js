@@ -12,6 +12,7 @@ function renderPage() {
 
 function renderPwdModal() {
   const pwdDiv = document.createElement("div");
+  pwdDiv.classList.add("pwd-div");
 
   const pwdForm = document.createElement("form");
   pwdForm.method = "post";
@@ -28,7 +29,7 @@ function renderPwdModal() {
   const submitBtn = document.createElement("button");
   submitBtn.type = "submit";
   submitBtn.id = "pwdSubmitBtn";
-  submitBtn.textContent = "Login";
+  submitBtn.textContent = "LOGIN";
 
   pwdForm.appendChild(submitBtn);
 

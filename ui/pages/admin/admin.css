@@ -24,3 +24,22 @@ th:last-of-type {
 tbody > tr:nth-of-type(even) {
   background-color: #f2f2ef;
 }
+
+.pwd-div {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  width: 70%;
+  align-items: center;
+
+  input[type="password"] {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  button {
+    width: 100%;
+  }
+}
