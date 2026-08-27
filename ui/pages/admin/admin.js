@@ -2,9 +2,16 @@ import { passwordIsValid } from "/ui/pages/pages.js";
 
 const baseUrl = "http://localhost:8000";
 
+const TABLE_COLUMNS = ["Name", "RSVP"];
+
 const containerEl = document.querySelector(".container");
 
-const tbodyEl = document.querySelector("tbody");
+// Force page reload when navigating using back/fwd arrows
+window.addEventListener("pageshow", (event) => {
+  if (event.persisted) {
+    window.location.reload();
+  }
+});
 
 function renderPage() {
   renderPwdModal();
