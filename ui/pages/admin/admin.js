@@ -48,6 +48,8 @@ async function checkPassword(event) {
   const isValid = await passwordIsValid("admin", passwordInput.value);
 
   if (isValid) {
+    const pwdDivEl = document.querySelector(".pwd-div");
+    pwdDivEl.replaceChildren();
     renderTable();
   } else {
     submitBtn.blur();
@@ -70,9 +72,35 @@ async function renderTable() {
     headers: { "Content-Type": "application/json" },
   });
   const result = await response.json();
-  result.guests.forEach((guest) => {
-    tbodyEl.appendChild(createRow(guest.full_name, guest.rsvp));
-  });
+
+  containerEl.appendChild(createTable(result.guests, TABLE_COLUMNS));
+}
+
+function createTable(guests, columns) {
+  const tableEl = document.createElement("table");
+  const theadEl = document.createElement("thead");
+
+  const trEl = document.createElement("tr");
+  columns.forEach((column) => trEl.appendChild(createColumn(column)));
+
+  theadEl.appendChild(trEl);
+  tableEl.appendChild(theadEl);
+
+  const tbodyEl = document.createElement("tbody");
+  guests.forEach((guest) =>
+    tbodyEl.appendChild(createRow(guest.full_name, guest.rsvp)),
+  );
+  tableEl.appendChild(tbodyEl);
+
+  return tableEl;
+}
+
+function createColumn(name) {
+  const thEl = document.createElement("th");
+  thEl.scope = "col";
+  thEl.textContent = name;
+
+  return thEl;
 }
 
 function createRow(name, rsvp) {
