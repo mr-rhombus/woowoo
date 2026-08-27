@@ -43,3 +43,19 @@ form {
     width: 100%;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+
+  th:first-child,
+  td:first-child {
+    width: 20%;
+  }
+
+  th:nth-child(2),
+  td:nth-child(2) {
+    width: 10%;
+  }
+}
