@@ -1,4 +1,4 @@
-import { environment } from "/ui/environment.js";
+const baseUrl = "http://localhost:8000";
 
 const findPartyBtn = document.getElementById("findPartyBtn");
 findPartyBtn.addEventListener("click", renderParties);
@@ -20,7 +20,7 @@ async function renderParties(event) {
   };
 
   try {
-    const response = await fetch(`${environment.baseUrl}/api/find_guests`, {
+    const response = await fetch(`${baseUrl}/api/find_guests`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(fullNameData),
@@ -60,7 +60,7 @@ async function updateRsvp(event) {
   const formData = new FormData(partyForm);
 
   try {
-    const response = await fetch(`${environment.baseUrl}/api/update_rsvp`, {
+    const response = await fetch(`${baseUrl}/api/update_rsvp`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(Object.fromEntries(formData)),

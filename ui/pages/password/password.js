@@ -1,4 +1,4 @@
-import { passwordIsValid } from "/ui/pages/pages.js";
+import { passwordIsValid } from "/ui/utils.js";
 
 const passwordInput = document.getElementById("pwd");
 const submitBtn = document.getElementById("pwdSubmitBtn");
