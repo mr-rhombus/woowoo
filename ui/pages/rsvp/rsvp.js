@@ -43,7 +43,7 @@ async function renderParties(event) {
     });
 
     if (result.guests.length == 0) {
-      noGuestsFoundDiv = document.createElement("div");
+      const noGuestsFoundDiv = document.createElement("div");
       noGuestsFoundDiv.classList.add("text");
       noGuestsFoundDiv.textContent = `No guests found with a name matching "${fullNameVal}"`;
       guestsDiv.appendChild(noGuestsFoundDiv);
