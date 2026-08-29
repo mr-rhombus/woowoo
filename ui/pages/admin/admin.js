@@ -1,6 +1,5 @@
+import { environment } from "/ui/environment.js";
 import { passwordIsValid } from "/ui/pages/pages.js";
-
-const baseUrl = "http://localhost:8000";
 
 const TABLE_COLUMNS = ["Name", "RSVP"];
 
@@ -74,7 +73,7 @@ async function checkPassword(event) {
 }
 
 async function renderTable() {
-  const response = await fetch(`${baseUrl}/api/get_all_guests`, {
+  const response = await fetch(`${environment.baseUrl}/api/get_all_guests`, {
     method: "GET",
     headers: { "Content-Type": "application/json" },
   });
