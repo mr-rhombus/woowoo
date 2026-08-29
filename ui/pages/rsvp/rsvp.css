@@ -1,3 +1,7 @@
+form {
+  gap: 0px;
+}
+
 #findParty {
   display: flex;
   flex-direction: column;
@@ -17,7 +21,7 @@
     border-radius: 30px;
     border: 1px solid black;
     font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
   }
 }
 
