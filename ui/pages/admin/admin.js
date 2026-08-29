@@ -1,6 +1,10 @@
 import { passwordIsValid } from "/ui/utils.js";
 
-const baseUrl = "http://localhost:8000";
+const baseUrl =
+  window.location.hostname === "localhost" ||
+  window.location.hostname === "127.0.0.1"
+    ? "http://localhost:8000"
+    : "https://woowoo-production.up.railway.app";
 const TABLE_COLUMNS = ["Name", "RSVP"];
 
 const containerEl = document.querySelector(".container");

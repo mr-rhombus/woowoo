@@ -19,6 +19,7 @@ origins = [
     "http://127.0.0.1:5500",
     "http://localhost:8000",
     "http://127.0.0.1:8000",
+    "https://woowoo-production.up.railway.app",
 ]
 
 UI_DIR = os.path.join(os.path.dirname(__file__), "..", "ui")
