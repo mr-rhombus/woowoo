@@ -46,6 +46,10 @@ input[type="radio"] {
   gap: 5px;
 }
 
+.party-simple {
+  gap: 5px;
+}
+
 .guests {
   width: 75%;
 
