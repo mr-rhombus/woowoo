@@ -36,9 +36,8 @@ async function renderParties(event) {
       const partyLastName = partyGuests.sort((a, b) =>
         b.last_name.localeCompare(a.lastName),
       )[0].last_name;
-      // FIXME ??
       guestsDiv.appendChild(
-        createParty(partyLastName, partyId, partyGuests, { simple: true }),
+        createParty(partyLastName, partyId, partyGuests, true),
       );
     });
 
@@ -95,9 +94,7 @@ function createParty(partyName, partyId, guestData, simple = false) {
   fieldset.appendChild(legend);
 
   guestData.forEach((guest) => {
-    partyForm.appendChild(
-      createGuest(guest.full_name, guest.rsvp, { simple: simple }),
-    );
+    partyForm.appendChild(createGuest(guest.full_name, guest.rsvp, simple));
   });
   fieldset.appendChild(partyForm);
 
