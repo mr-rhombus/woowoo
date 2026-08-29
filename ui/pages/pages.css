@@ -96,7 +96,6 @@ form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 20%;
 
   input[type="password"] {
     background-color: #f2f0ef;
