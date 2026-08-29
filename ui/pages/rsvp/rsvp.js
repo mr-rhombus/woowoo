@@ -38,7 +38,7 @@ async function renderParties(event) {
       )[0].last_name;
       // FIXME ??
       guestsDiv.appendChild(
-        createParty(partyLastName, partyId, partyGuests, (simple = true)),
+        createParty(partyLastName, partyId, partyGuests, { simple: true }),
       );
     });
 
@@ -96,7 +96,7 @@ function createParty(partyName, partyId, guestData, simple = false) {
 
   guestData.forEach((guest) => {
     partyForm.appendChild(
-      createGuest(guest.full_name, guest.rsvp, (simple = simple)),
+      createGuest(guest.full_name, guest.rsvp, { simple: simple }),
     );
   });
   fieldset.appendChild(partyForm);
