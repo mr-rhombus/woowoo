@@ -3,11 +3,18 @@
   display: flex;
   justify-content: center;
   img {
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    margin-top: 40px;
     width: 80%;
   }
 }
 
 a {
   text-decoration: none;
+}
+
+@media screen and (max-width: 768px) {
+  .home-pic {
+    margin-top: 60px;
+  }
 }
