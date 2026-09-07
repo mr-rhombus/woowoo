@@ -5,15 +5,24 @@
   img {
     margin-top: 40px;
     width: 80%;
+    --fade-width: 20px;
+    mask-image:
+      linear-gradient(
+        to right,
+        transparent,
+        black var(--fade-width) calc(100% - var(--fade-width)),
+        transparent
+      ),
+      linear-gradient(
+        to bottom,
+        transparent,
+        black var(--fade-width) calc(100% - var(--fade-width)),
+        transparent
+      );
+    mask-composite: intersect;
   }
 }
 
 a {
   text-decoration: none;
-}
-
-@media screen and (max-width: 768px) {
-  .home-pic {
-    margin-top: 60px;
-  }
 }
