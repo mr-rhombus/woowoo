@@ -2,9 +2,15 @@
   margin-bottom: 20px;
   display: flex;
   justify-content: center;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 22%;
+  width: 80%;
+  z-index: -1;
   img {
     margin-top: 40px;
-    width: 80%;
+    width: 65%;
     --fade-width: 20px;
     mask-image:
       linear-gradient(
@@ -23,14 +29,67 @@
   }
 }
 
+.container {
+  background-color: transparent;
+}
+
 .title {
   margin-bottom: 0;
 }
 
 .sub-header {
   margin-bottom: 8px;
+  background-color: rgba(251, 250, 247, 0.1);
+  font-family: "Cormorant Garamond", Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.font-lg {
+  font-size: 1.4rem;
 }
 
 a {
   text-decoration: none;
+}
+
+@media screen and (max-width: 1400px) {
+  .home-pic {
+    width: 100%;
+    top: 25%;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  body {
+    font-size: 1.2rem;
+  }
+
+  .font-lg {
+    font-size: 1.3rem;
+  }
+
+  .title {
+    font-size: 4rem;
+  }
+
+  .home-pic {
+    top: 20%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    font-size: 1rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .font-lg {
+    font-size: 1.1rem;
+  }
+
+  .home-pic {
+    top: 18%;
+  }
 }
