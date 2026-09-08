@@ -2,7 +2,7 @@ const baseUrl =
   window.location.hostname === "localhost" ||
   window.location.hostname === "127.0.0.1"
     ? "http://localhost:8000"
-    : process.env.DOMAIN;
+    : "https://williams-diamond.com";
 
 const findPartyBtn = document.getElementById("findPartyBtn");
 findPartyBtn.addEventListener("click", renderParties);
