@@ -5,7 +5,7 @@
   position: fixed;
   left: 50%;
   transform: translateX(-50%);
-  top: 22%;
+  top: 25%;
   width: 80%;
   z-index: -1;
   img {
@@ -54,7 +54,7 @@ a {
 @media screen and (max-width: 1400px) {
   .home-pic {
     width: 100%;
-    top: 25%;
+    top: 27%;
   }
 }
 
@@ -72,7 +72,7 @@ a {
   }
 
   .home-pic {
-    top: 20%;
+    top: 22%;
   }
 }
 
