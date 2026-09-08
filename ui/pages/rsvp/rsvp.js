@@ -85,7 +85,6 @@ function createParty(partyName, partyId, guestData, simple = false) {
   const fieldset = document.createElement("fieldset");
 
   const legend = document.createElement("legend");
-  legend.textContent = partyName;
 
   const partyForm = document.createElement("form");
   partyForm.id = "single-party-form";

@@ -10,7 +10,7 @@ form {
 
   label {
     font-size: 1rem;
-    margin-left: 15px;
+    margin-left: 5px;
   }
 
   input[type="text"] {
@@ -18,7 +18,7 @@ form {
     padding: 5px;
     text-align: center;
     height: 30px;
-    border-radius: 30px;
+    border-radius: 5px;
     border: 1px solid black;
     font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
     margin-bottom: 30px;
@@ -32,6 +32,15 @@ input[type="radio"] {
 .container {
   width: 60%;
   align-items: center;
+}
+
+.instructions {
+  margin-bottom: 60px;
+  width: 60%;
+  padding: 12px;
+  background-color: #f2f0ef;
+  border-radius: 5px;
+  font-size: 1.1rem;
 }
 
 .searchBtn {
@@ -54,8 +63,7 @@ input[type="radio"] {
   width: 75%;
 
   legend {
-    font-size: 1.5rem;
-    font-weight: 500;
+    padding: 0;
   }
 }
 
@@ -130,12 +138,18 @@ fieldset {
     width: 100%;
   }
 
+  .instructions {
+    font-size: 0.9rem;
+    width: 80%;
+    margin-bottom: 40px;
+  }
+
   #findParty {
     width: 80%;
 
     label {
       margin: 0;
-      margin-left: 15px;
+      margin-left: 5px;
       font-size: 0.9rem;
     }
   }
@@ -151,7 +165,6 @@ fieldset {
       padding: 2px;
       text-align: center;
       height: 30px;
-      border-radius: 30px;
       border: 1px solid black;
       font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
       margin-bottom: 20px;
