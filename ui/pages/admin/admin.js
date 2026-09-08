@@ -4,7 +4,7 @@ const baseUrl =
   window.location.hostname === "localhost" ||
   window.location.hostname === "127.0.0.1"
     ? "http://localhost:8000"
-    : "https://woowoo-production.up.railway.app";
+    : process.env.DOMAIN;
 const TABLE_COLUMNS = ["Name", "RSVP"];
 
 const containerEl = document.querySelector(".container");
