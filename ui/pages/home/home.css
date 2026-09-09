@@ -84,6 +84,11 @@ a {
 
   .title {
     font-size: 2.5rem;
+    margin-bottom: 15px;
+  }
+
+  .sub-header {
+    margin-bottom: 20px;
   }
 
   .font-lg {
@@ -91,6 +96,9 @@ a {
   }
 
   .home-pic {
-    top: 18%;
+    grid-row: 3 / 5;
+    img {
+      width: 85%;
+    }
   }
 }
