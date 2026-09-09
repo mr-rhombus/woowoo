@@ -1,7 +1,8 @@
 @property --bg-color {
   syntax: "<color>";
   inherits: false;
-  initial-value: rgb(251, 250, 247);
+  /* initial-value: rgb(251, 250, 247); */
+  initial-value: #f2ebdf;
 }
 
 html {
@@ -90,20 +91,20 @@ body {
     font-weight: 500;
     height: 40px;
     border-radius: 20px;
-    border: 1px solid #2e6f40;
+    border: 1px solid #a7a782;
+    background-color: #a7a782;
     color: #f2f0ef;
-    background-color: #2e6f40;
     cursor: pointer;
   }
 
   button:hover {
-    background-color: #245632;
-    border-color: #245632;
+    background-color: #5d613d;
+    border-color: #5d613d;
   }
 
   button:active {
-    background-color: #1a3e24;
-    border-color: #1a3e24;
+    background-color: #182825;
+    border-color: #182825;
   }
 }
 
