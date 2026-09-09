@@ -11,6 +11,11 @@ body {
   font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
 }
 
+input[type="text"],
+input[type="password"] {
+  background-color: #f2f0ef;
+}
+
 .title {
   font-size: 6rem;
   font-family: "Bodoni Moda";
