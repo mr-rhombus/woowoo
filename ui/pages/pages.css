@@ -79,6 +79,34 @@ body {
   margin-bottom: 25px;
 }
 
+button[type="submit"] {
+  -webkit-appearance: none; /* Resets Safari and iOS native styling */
+  -moz-appearance: none; /* Resets Firefox styling */
+  appearance: none; /* Standard property */
+
+  /* Safari also enforces an internal border-radius; reset it if you want square buttons */
+  border-radius: 0;
+
+  /* iOS Safari sometimes forces an opacity change on disabled buttons */
+  opacity: 1;
+
+  background-color: #f2f0ef;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+button[type="submit"]:hover {
+  cursor: pointer;
+  color: #f2f0ef;
+  background-color: #a7a782;
+  border-color: #a7a782;
+}
+
+button[type="submit"]:active {
+  background-color: #5d613d;
+  border-color: #5d613d;
+}
+
 .btn-container {
   display: flex;
   justify-content: center;
