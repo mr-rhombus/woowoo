@@ -15,7 +15,11 @@ async function checkPassword(event) {
   const isValid = await passwordIsValid("index", passwordInput.value);
 
   if (isValid) {
-    window.location.href = rootUrl + "/pages/splash/splash.html";
+    if (rootUrl.includes("127.0.0.1:5500")) {
+      window.location.href = rootUrl + "/pages/splash/splash.html";
+    } else {
+      window.location.href = rootUrl + "/splash";
+    }
   } else {
     submitBtn.blur();
 

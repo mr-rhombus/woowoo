@@ -16,3 +16,11 @@ if (nav) {
     lastScrollY = currentScrollY;
   });
 }
+
+//
+const navElements = document.querySelectorAll(".nav a");
+if (!navElements[0].href.includes("127.0.0.1:5500")) {
+  navElements.forEach((anchorEl) => {
+    anchorEl.href = anchorEl.textContent;
+  });
+}
