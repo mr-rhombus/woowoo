@@ -18,7 +18,7 @@ body {
   top: 0;
   height: 70px;
   width: 100%;
-  background-color: var(--bg-color);
+  background-color: rgba(242, 235, 223, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
