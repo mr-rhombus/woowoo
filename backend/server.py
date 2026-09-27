@@ -25,7 +25,36 @@ origins = [
 
 UI_DIR = os.path.join(os.path.dirname(__file__), "..", "ui")
 
-app.mount("/ui", StaticFiles(directory=UI_DIR, html=True), name="ui")
+from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
+from starlette.responses import Response
+
+app = FastAPI()
+
+
+class NoCacheStaticFiles(StaticFiles):
+    def is_not_modified(self, response_headers, request_headers) -> bool:
+        # Prevent 304 Not Modified responses so the server always re-evaluates
+        return False
+
+    async def get_response(self, path: str, scope) -> Response:
+        response = await super().get_response(path, scope)
+
+        # If serving an HTML file or the root directory, tell the browser NEVER to cache it
+        if path.endswith(".html") or path == "" or "/" not in path:
+            response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+            response.headers["Pragma"] = "no-cache"
+            response.headers["Expires"] = "0"
+        else:
+            # For CSS/JS/Images, allow conditional caching but require revalidation,
+            # OR use aggressive caching IF you are using versioned query parameters.
+            response.headers["Cache-Control"] = "no-cache, must-revalidate"
+
+        return response
+
+
+# Mount your custom static files handler
+app.mount("/ui", NoCacheStaticFiles(directory=UI_DIR, html=True), name="ui")
 
 PG_DB = PGHandler(os.getenv("PG_URL"))
 
