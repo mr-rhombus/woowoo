@@ -29,9 +29,14 @@ input[type="radio"] {
   margin: 0 5px 0 0;
 }
 
+.nav {
+  top: 0;
+}
+
 .container {
   width: 60%;
   align-items: center;
+  margin-top: 0;
 }
 
 .instructions {
