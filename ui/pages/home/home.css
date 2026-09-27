@@ -4,6 +4,8 @@ body {
 }
 
 .title {
+  margin-top: 40px;
+  margin-bottom: 0;
   grid-row: 1;
   grid-column: 1;
 }
@@ -69,10 +71,6 @@ body {
   align-items: center;
 }
 
-.title {
-  margin-bottom: 0;
-}
-
 .sub-header {
   margin-bottom: 8px;
   background-color: transparent;
@@ -92,10 +90,6 @@ a {
   margin: 40px 0 0 0;
   padding-bottom: 200px;
   color: #f2f0ef;
-
-  .title {
-    margin-top: 40px;
-  }
 }
 
 .banner {
