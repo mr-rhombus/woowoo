@@ -17,7 +17,7 @@
 
 @media screen and (max-width: 768px) {
   .container {
-    margin: 0 7%;
+    margin: 40px 7% 0 7%;
   }
   .question {
     margin-bottom: 35px;

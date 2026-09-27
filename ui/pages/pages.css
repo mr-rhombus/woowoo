@@ -186,4 +186,7 @@ form {
   .nav ul {
     gap: 25px;
   }
+  .title {
+    margin-top: 80px;
+  }
 }
