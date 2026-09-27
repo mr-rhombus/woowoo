@@ -83,26 +83,83 @@ function createEvent(name, start, end, details) {
 
 const SCHEDULE = {
   "SEPTEMBER 24, 2027": {
-    afternoon: [createEvent("Guest Arrivals", "1pm", "", lorem)],
-    evening: [createEvent("Welcome Dinner", "7pm", "9pm", lorem)],
-  },
-  "SEPTEMBER 25, 2027": {
-    morning: [createEvent("Breakfast", "8am", "10am", lorem)],
     afternoon: [
-      createEvent("Wedding Ceremony", "2pm", "3pm", lorem),
-      createEvent("Aperitivo", "3:30pm", "5pm", lorem),
+      createEvent(
+        "Guest Arrivals",
+        "1pm",
+        "",
+        "Guests are welcome to make their way to the venue to settle into their rooms and unpack!",
+      ),
     ],
     evening: [
-      createEvent("Dinner", "6pm", "8pm", lorem),
-      createEvent("Celebration", "8pm", "12am", lorem),
+      createEvent(
+        "Welcome Dinner",
+        "Time TBD",
+        "",
+        "Guests are invited to join Ashley and Max for a welcome dinner at one of the three villas on the property. The villa hosting the dinner and the menu are TBD.",
+      ),
+    ],
+  },
+  "SEPTEMBER 25, 2027": {
+    morning: [
+      createEvent(
+        "Breakfast",
+        "Time TBD",
+        "",
+        "Guests are welcome to a full breakfast at one of the three villas on the property. The villa hosting breakfast is TBD.",
+      ),
+    ],
+    afternoon: [
+      createEvent(
+        "Wedding Ceremony",
+        "Time TBD",
+        "",
+        "Join Ashley and Max in the large field by Villa Nemora for a wedding ceremony to remember!",
+      ),
+      createEvent(
+        "Aperitivo",
+        "Time TBD",
+        "",
+        "Enjoy light drinks and snacks by Villa Nemora before dinner.",
+      ),
+    ],
+    evening: [
+      createEvent(
+        "Dinner",
+        "Time TBD",
+        "",
+        "Sit down among friends and family to celebrate and enjoy a delicious Tuscan-inspired meal! The dinner will be hosted in the Villa Nemora courtyard. The menu and food preferences will become available later.",
+      ),
+      createEvent(
+        "Celebration",
+        "Time TBD",
+        "",
+        "Dance and celebrate alongside Ashley and Max to celebrate their marriage! Dessert and late night snacks will also be provided.",
+      ),
     ],
   },
   "SEPTEMBER 26, 2027": {
-    morning: [createEvent("Breakfast", "8am", "10am", lorem)],
+    morning: [
+      createEvent(
+        "Breakfast",
+        "Time TBD",
+        "",
+        "Guests are welcome to a full breakfast at one of the three villas on the property. The villa hosting breakfast is TBD.",
+      ),
+    ],
     afternoon: [
-      createEvent("Lunch", "12pm", "2pm", lorem),
-      createEvent("Pool Party", "1pm", "3pm", lorem),
-      createEvent("Guest Checkout", "4pm", "", lorem),
+      createEvent(
+        "Lunch",
+        "Time TBD",
+        "",
+        "Enjoy lunch, consisting of either a Pizza Party or Barbeque.",
+      ),
+      createEvent(
+        "Pool Party",
+        "Time TBD",
+        "",
+        "Enjoy the beautiful weather by lounging around one of the venue's three private pools.",
+      ),
     ],
   },
 };
