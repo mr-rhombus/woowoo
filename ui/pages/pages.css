@@ -58,6 +58,10 @@ body {
   }
 }
 
+.nav.banner-active {
+  transform: translateY(40px);
+}
+
 .nav.nav-hidden {
   transform: translateY(-160%);
 }

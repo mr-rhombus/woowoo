@@ -1,9 +1,15 @@
 const nav = document.querySelector(".nav");
+const homeBanner = document.querySelector(".banner");
 let lastScrollY = window.scrollY;
 
 if (nav) {
   window.addEventListener("scroll", () => {
     currentScrollY = window.scrollY;
+    if (homeBanner.classList.contains("is-active")) {
+      nav.classList.add("banner-active");
+    } else {
+      nav.classList.remove("banner-active");
+    }
 
     // Ignore small scrolls
     if (Math.abs(currentScrollY - lastScrollY) < 8) return;
