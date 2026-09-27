@@ -13,16 +13,30 @@ body {
   background-color: var(--bg-color);
 }
 
+.banner {
+  font-size: 1.1rem;
+  background-color: #a7a782;
+  color: #f2f0ef;
+  position: fixed;
+  height: 40px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.3);
+}
+
 .nav {
   position: fixed;
-  top: 0;
+  top: 40px;
   height: 70px;
   width: 100%;
   background-color: rgba(242, 235, 223, 0.9);
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: transform 0.6s ease-in-out;
+  transition: transform 0.8s ease-in-out;
   a {
     text-decoration: none;
     color: black;
@@ -45,7 +59,7 @@ body {
 }
 
 .nav.nav-hidden {
-  transform: translateY(-100%);
+  transform: translateY(-160%);
 }
 
 .nav-active {
@@ -53,14 +67,14 @@ body {
 }
 
 .container {
-  margin: 0 5% 5% 5%;
+  margin: 40px 5% 5% 5%;
   display: flex;
   flex-direction: column;
   background-color: var(--bg-color);
 }
 
 .container-grid {
-  margin: 0 5% 5% 5%;
+  margin: 40px 5% 5% 5%;
   display: grid;
   grid-template-rows: auto auto auto 1fr;
   grid-template-columns: 1fr;
@@ -166,6 +180,9 @@ form {
 }
 
 @media screen and (max-width: 768px) {
+  .banner {
+    font-size: 0.9rem;
+  }
   .nav ul {
     gap: 25px;
   }
