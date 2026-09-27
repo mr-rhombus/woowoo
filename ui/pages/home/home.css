@@ -177,6 +177,23 @@ a {
   .title {
     font-size: 4rem;
   }
+
+  .schedule {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .day {
+    padding: 10px;
+    border: 0.5px solid #f2f0ef;
+    width: 80%;
+    height: 250px;
+  }
+
+  .day-big {
+    height: 450px;
+    justify-content: flex-start;
+  }
 }
 
 @media screen and (max-width: 768px) {
