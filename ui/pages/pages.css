@@ -62,10 +62,6 @@ body {
   transform: translateY(60px);
 }
 
-.nav.nav-hidden {
-  transform: translateY(-160%);
-}
-
 .nav-active {
   border-bottom: 1px solid black !important;
 }
@@ -190,7 +186,14 @@ form {
   .nav ul {
     gap: 25px;
   }
+  .nav.banner-active {
+    transform: translateY(30px);
+  }
   .title {
     margin-top: 80px;
   }
+}
+
+.nav.nav-hidden {
+  transform: translateY(-160%);
 }

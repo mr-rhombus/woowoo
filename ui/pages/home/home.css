@@ -240,6 +240,20 @@ a {
     font-size: 1rem;
   }
 
+  .container-grid {
+    padding-top: 100px;
+    height: 100vh;
+    grid-template-rows: auto auto auto auto 1fr;
+  }
+
+  .banner {
+    height: 30px;
+  }
+
+  .banner.is-active + .title {
+    margin-top: 100px;
+  }
+
   .title {
     font-size: 2.5rem;
     margin-bottom: 15px;
