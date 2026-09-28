@@ -8,7 +8,7 @@ body {
 }
 
 .title {
-  margin-top: 55px;
+  margin-top: 60px;
   margin-bottom: 30px;
   grid-row: 1;
   grid-column: 1;
@@ -16,7 +16,7 @@ body {
 }
 
 .banner.is-active + .title {
-  margin-top: calc(var(--banner-height) + 30px);
+  margin-top: calc(var(--banner-height) + 20px);
 }
 
 .logo {
