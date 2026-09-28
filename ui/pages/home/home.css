@@ -144,7 +144,25 @@ a {
 .day-big {
   width: 400px;
   height: 500px;
-  justify-content: flex-start;
+}
+
+.day-grid {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+}
+
+.day-pic {
+  grid-row: 1;
+}
+
+.day-content {
+  grid-row: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .schedule-title {
@@ -169,8 +187,7 @@ a {
 }
 
 .day-img {
-  margin-bottom: 30px;
-  height: 250px;
+  height: 300px;
 }
 
 .day-img img {
@@ -211,7 +228,10 @@ a {
 
   .day-big {
     height: 450px;
-    justify-content: flex-start;
+  }
+
+  .day-img {
+    height: 250px;
   }
 }
 
