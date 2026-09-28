@@ -8,7 +8,7 @@ body {
 }
 
 .title {
-  margin-top: 30px;
+  margin-top: 55px;
   margin-bottom: 30px;
   grid-row: 1;
   grid-column: 1;
@@ -97,7 +97,7 @@ a {
 .container {
   background-color: #4d5e42;
   margin: 0;
-  padding-bottom: 200px;
+  padding-bottom: 15px;
   color: #f2f0ef;
 }
 
