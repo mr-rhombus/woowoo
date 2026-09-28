@@ -89,6 +89,7 @@ details[open] summary::after {
 @media screen and (max-width: 768px) {
   .container {
     margin: 40px 7% 0 7%;
+    width: 80%;
   }
   .question {
     margin-bottom: 35px;
