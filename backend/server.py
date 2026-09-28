@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 from fastapi import FastAPI, HTTPException
 from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.database import PGHandler
@@ -90,6 +90,9 @@ async def serve_page_simple(page_name: str):
     safe_page = os.path.basename(page_name)
 
     file_path = os.path.join(UI_DIR, "pages", safe_page, safe_page + ".html")
+
+    if page_name == "schedule":
+        return RedirectResponse(url="/home#schedule")
 
     if os.path.exists(file_path):
         return FileResponse(file_path)
