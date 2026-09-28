@@ -51,6 +51,8 @@ details summary {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
+
+  line-height: 1.5;
 }
 
 details p {
@@ -67,6 +69,7 @@ details summary::after {
 
 details[open] summary {
   font-weight: 500;
+  text-shadow: 0.5px 0 0 currentColor;
 }
 
 details[open] summary::after {
