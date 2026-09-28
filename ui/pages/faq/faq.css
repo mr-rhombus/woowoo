@@ -103,6 +103,9 @@ details[open] summary::after {
     margin: 40px 7% 0 7%;
     width: 80%;
   }
+  details {
+    width: 95%;
+  }
   .question {
     margin-bottom: 35px;
   }
