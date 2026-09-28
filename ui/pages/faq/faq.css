@@ -1,5 +1,71 @@
+:root {
+  interpolate-size: allow-keywords;
+}
+
 .container {
-  margin: 40px 15% 0 15%;
+  margin: 40px 15% 100px 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+details {
+  box-sizing: border-box;
+  font-size: 1.1rem;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  max-width: 500px;
+  width: 100%;
+  overflow: hidden;
+}
+
+details + details {
+  border-top: none;
+}
+
+details::details-content {
+  block-size: 0;
+  overflow: hidden;
+
+  transition-property: block-size, content-visibility;
+  transition-duration: 0.3s;
+  transition-timing-function: ease-in-out;
+
+  transition-behavior: allow-discrete;
+}
+
+details[open]::details-content {
+  block-size: auto;
+}
+
+details summary ::-webkit-details-marker {
+  display: none;
+}
+
+details summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 20px 5px;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  /* width: 100%; */
+}
+
+details summary::after {
+  content: "+";
+  font-size: 2.1rem;
+  grid-column: 2;
+  line-height: 1;
+}
+
+details[open] summary {
+  font-weight: 500;
+}
+
+details[open] summary::after {
+  content: "-";
 }
 
 .question {
