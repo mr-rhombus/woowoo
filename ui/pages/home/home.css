@@ -168,12 +168,12 @@ a {
 .schedule-title {
   font-size: 3rem;
   font-family: "Kapakana";
-  padding-bottom: 5px;
+  padding-bottom: 15px;
 }
 
 .hr {
   border-bottom: 0.5px solid #f2f0ef;
-  width: 15%;
+  width: 50px;
   margin-bottom: 15px;
 }
 
