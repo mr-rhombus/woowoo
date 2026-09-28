@@ -83,8 +83,8 @@ fieldset {
   width: 120px;
   height: 40px;
   color: #f2f0ef;
-  background-color: #3b3430;
-  border: 1px solid #3b3430;
+  background-color: #5d613d;
+  border: 1px solid #5d613d;
   border-radius: 10px;
   font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
   font-weight: 500;
@@ -92,7 +92,7 @@ fieldset {
 }
 
 .select-party-btn:hover {
-  background-color: black;
+  background-color: #182825;
 }
 
 .guest {
