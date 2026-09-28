@@ -3,11 +3,11 @@
 }
 
 .container {
-  margin: 40px 15% 100px 15%;
+  margin: 40px 0 0 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 70%;
+  width: 100%;
 }
 
 details {
@@ -16,7 +16,7 @@ details {
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   max-width: 700px;
-  width: 100%;
+  width: 70%;
   overflow: hidden;
 }
 
@@ -84,6 +84,15 @@ details[open] summary::after {
 .question-title {
   font-size: 2.5rem;
   font-weight: 500;
+}
+
+.img-container {
+  width: 100%;
+  margin-top: 50px;
+}
+
+.img-container img {
+  width: 100%;
 }
 
 @media screen and (max-width: 768px) {
