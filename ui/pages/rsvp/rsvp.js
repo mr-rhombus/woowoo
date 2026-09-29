@@ -7,10 +7,9 @@ const baseUrl =
 const findPartyBtn = document.getElementById("findPartyBtn");
 findPartyBtn.addEventListener("click", renderParties);
 
-const guestsDiv = document.querySelector(".guests");
-
 const rsvpBtn = document.getElementById("rsvp");
-rsvpBtn.addEventListener("click", updateRsvp);
+
+const guestsDiv = document.querySelector(".guests");
 
 async function renderParties(event) {
   event.preventDefault();
@@ -51,17 +50,21 @@ async function renderParties(event) {
   }
 }
 
-async function updateRsvp(event) {
+async function updateRsvp(event, partyId) {
   event.preventDefault();
 
   const partyForm = document.getElementById("single-party-form");
   const formData = new FormData(partyForm);
+  const requestBody = {
+    responses: Object.fromEntries(formData),
+    party_id: partyId,
+  };
 
   try {
-    const response = await fetch(`${baseUrl}/api/update_rsvp`, {
+    await fetch(`${baseUrl}/api/update_rsvp`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(Object.fromEntries(formData)),
+      body: JSON.stringify(requestBody),
     });
 
     guestsDiv.replaceChildren();
@@ -207,8 +210,19 @@ function openEditModal(nameDiv, guestId) {
 
   submitBtn.addEventListener("click", (e) => {
     if (newName.length > 0) {
+      // Update displayed name
       nameDiv.textContent = newName;
-      updateGuestName(nameDiv, newName, guestId);
+
+      // Update form
+      const guestInputs = document.querySelectorAll(
+        "div.edit-guest + div.guestResponse input",
+      );
+      guestInputs.forEach((input) => {
+        input.name = newName;
+      });
+
+      // Update name in DB
+      updateGuestName(newName, guestId);
       modal.close();
     }
   });
@@ -226,7 +240,7 @@ function openEditModal(nameDiv, guestId) {
   });
 }
 
-function updateGuestName(nameDiv, newName, guestId) {
+function updateGuestName(newName, guestId) {
   requestBody = { guest_id: guestId, full_name: newName };
   try {
     fetch(`${baseUrl}/api/update_guest`, {
@@ -280,6 +294,10 @@ function renderPartyFull(event, partyId, partyGuests) {
   guestsDiv.replaceChildren();
 
   guestsDiv.appendChild(createParty(partyId, partyGuests));
+
+  rsvpBtn.addEventListener("click", (e) => {
+    updateRsvp(e, partyId);
+  });
 
   rsvpBtn.style.display = "block";
 }

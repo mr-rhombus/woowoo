@@ -73,20 +73,25 @@ class PGHandler:
         return cur.fetchall()
 
     @connect
-    def update_rsvp_status(self, payload: dict[str, str], cur: psycopg.Cursor) -> None:
+    def update_rsvp_status(
+        self, responses: dict[str, str], party_id: int, cur: psycopg.Cursor
+    ) -> None:
         """Update guest RSVP status.
 
         Args:
-            payload (dict[str, str]): The guest names and their RSVP statuses
+            responses (dict[str, str]): The guest names and their RSVP statuses
+            party_id (int): The party id for the guests
             cur (psycopg.Cursor): An object to send commands to the PG DB session
         """
-        _sql = f"""
+        _sql = """
         UPDATE guests as t
         SET rsvp = j.value
-        FROM JSON_EACH_TEXT('{json.dumps(payload)}'::json) as j(key, value)
-        WHERE t.full_name = j.key;
+        FROM JSON_EACH_TEXT(%s::json) as j(key, value)
+        WHERE
+            t.full_name = j.key AND
+            t.group_id = %s;
         """
-        cur.execute(_sql)
+        cur.execute(_sql, (json.dumps(responses), party_id))
 
     @connect
     def update_guest_names(

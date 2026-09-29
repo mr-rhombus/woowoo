@@ -16,6 +16,11 @@ class PasswordRequest(BaseModel):
     password: str
 
 
+class RsvpPayload(BaseModel):
+    responses: dict
+    party_id: int
+
+
 class GuestUpdatePayload(BaseModel):
     guest_id: int
     full_name: str
