@@ -141,8 +141,8 @@ function createGuest(
   nameDiv.appendChild(nameContentDiv);
 
   guestDiv.appendChild(nameDiv);
-
   if (!simple) {
+    guestDiv.classList.add("guest-detailed");
     if (is_plus_one) {
       nameDiv.classList.add("edit-guest");
 
