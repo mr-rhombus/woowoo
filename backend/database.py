@@ -107,7 +107,7 @@ class PGHandler:
         names = full_name.split()
         first_name = names[0]
         last_name = " ".join(names[1:])
-        full_name = first_name + " " + last_name
+        full_name = " ".join([first_name, last_name]).strip()
         _sql = f"""
         UPDATE guests as t
         SET

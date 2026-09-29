@@ -259,7 +259,7 @@ function createResponseRadio(guestName, responseOption, actualResponse) {
 
   const radioInput = document.createElement("input");
   radioInput.type = "radio";
-  radioInput.name = guestName;
+  radioInput.name = guestName.trim();
 
   const radioLabel = document.createElement("label");
 
