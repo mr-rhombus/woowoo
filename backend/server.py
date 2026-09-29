@@ -8,7 +8,7 @@ from fastapi.responses import FileResponse, RedirectResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from backend.database import PGHandler
-from backend.models import Guest, PasswordRequest
+from backend.models import Guest, PasswordRequest, GuestUpdatePayload
 
 load_dotenv()
 
@@ -150,3 +150,13 @@ def update_rsvp(payload: dict[str, str]):
         payload (dict[str, str]): The payload mapping guest names to their RSVP status
     """
     PG_DB.update_rsvp_status(payload)
+
+
+@app.post("/api/update_guest")
+def update_guest(payload: GuestUpdatePayload):
+    """Update a guest's first, last, and full names
+
+    Args:
+        payload (dict[str, str]): The payload with the guest's new full name and existing id
+    """
+    PG_DB.update_guest_names(payload.full_name, payload.guest_id)

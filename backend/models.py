@@ -9,7 +9,13 @@ class Guest(BaseModel):
     rsvp: str | None
     is_plus_one: bool
     sort_order: int | None
+    id: int
 
 
 class PasswordRequest(BaseModel):
     password: str
+
+
+class GuestUpdatePayload(BaseModel):
+    guest_id: int
+    full_name: str

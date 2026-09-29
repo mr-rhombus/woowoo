@@ -87,3 +87,28 @@ class PGHandler:
         WHERE t.full_name = j.key;
         """
         cur.execute(_sql)
+
+    @connect
+    def update_guest_names(
+        self, full_name: str, guest_id: int, cur: psycopg.Cursor
+    ) -> None:
+        """Update guest first, last, and full names.
+
+        Args:
+            full_name (str): The guest's full name
+            guest_id (int): The guest's id
+            cur (psycopg.Cursor): An object to send commands to the PG DB session
+        """
+        names = full_name.split()
+        first_name = names[0]
+        last_name = " ".join(names[1:])
+        full_name = first_name + " " + last_name
+        _sql = f"""
+        UPDATE guests as t
+        SET
+            full_name = '{full_name}',
+            first_name = '{first_name}',
+            last_name = '{last_name}'
+        WHERE t.id = {guest_id}
+        """
+        cur.execute(_sql)

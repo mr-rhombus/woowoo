@@ -94,7 +94,13 @@ function createParty(partyId, guestData, simple = false) {
   guestData.sort((a, b) => a.sort_order - b.sort_order);
   guestData.forEach((guest) => {
     partyForm.appendChild(
-      createGuest(guest.full_name, guest.is_plus_one, guest.rsvp, simple),
+      createGuest(
+        guest.full_name,
+        guest.id,
+        guest.is_plus_one,
+        guest.rsvp,
+        simple,
+      ),
     );
   });
   fieldset.appendChild(partyForm);
@@ -114,7 +120,13 @@ function createParty(partyId, guestData, simple = false) {
   return fieldset;
 }
 
-function createGuest(name, is_plus_one, response = null, simple = true) {
+function createGuest(
+  name,
+  guestId,
+  is_plus_one,
+  response = null,
+  simple = true,
+) {
   const guestFieldset = document.createElement("fieldset");
   guestFieldset.classList.add("guest-fieldset");
 
@@ -140,7 +152,7 @@ function createGuest(name, is_plus_one, response = null, simple = true) {
       editGuestBtn.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
-        openEditModal(nameContentDiv);
+        openEditModal(nameContentDiv, guestId);
       });
     }
     const responseDiv = document.createElement("div");
@@ -156,7 +168,7 @@ function createGuest(name, is_plus_one, response = null, simple = true) {
   return guestFieldset;
 }
 
-function openEditModal(nameDiv) {
+function openEditModal(nameDiv, guestId) {
   const modal = document.getElementById("customModal");
   const closeBtn = document.getElementById("closeModalBtn");
   const submitBtn = document.getElementById("modalSubmitBtn");
@@ -182,7 +194,7 @@ function openEditModal(nameDiv) {
 
   submitBtn.addEventListener("click", (e) => {
     if (newName.length > 0) {
-      updateGuestName(nameDiv, newName);
+      updateGuestName(nameDiv, newName, guestId);
       modal.close();
     }
   });
@@ -200,9 +212,18 @@ function openEditModal(nameDiv) {
   });
 }
 
-function updateGuestName(nameDiv, newName) {
+function updateGuestName(nameDiv, newName, guestId) {
   nameDiv.textContent = newName;
-  // API
+  requestBody = { guest_id: guestId, full_name: newName };
+  try {
+    fetch(`${baseUrl}/api/update_guest`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(requestBody),
+    });
+  } catch (error) {
+    console.error("Error:", error);
+  }
 }
 
 function createResponseRadio(guestName, responseOption, actualResponse) {
