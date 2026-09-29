@@ -96,8 +96,8 @@ fieldset {
 }
 
 .guest {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
   width: 100%;
 
   label {
@@ -111,7 +111,13 @@ fieldset {
   padding: 0;
 }
 
+.guestName {
+  grid-column: 1;
+}
+
 .guestResponse {
+  grid-column: 2;
+  justify-content: end;
   display: flex;
   gap: 30px;
 }
@@ -136,6 +142,96 @@ fieldset {
 
 #rsvp {
   display: none;
+}
+
+/* Trigger Button */
+.btn-open {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.15);
+}
+
+.btn-open:hover {
+  background-color: #0056b3;
+}
+
+/* Modal Container */
+.modal {
+  border: none;
+  border-radius: 12px;
+  padding: 0;
+  max-width: 450px;
+  width: 90%;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  /* Animation state when hidden */
+  opacity: 0;
+  transform: scale(0.9);
+  transition: all 0.3s ease;
+}
+
+/* Modern way to animate native dialog open state */
+.modal[open] {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Semi-transparent backdrop (Dim background) */
+.modal::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px); /* Subtle blur effect */
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal[open]::backdrop {
+  opacity: 1;
+}
+
+/* Inner Content Padding */
+.modal-content {
+  padding: 24px;
+  position: relative;
+}
+
+/* Typography */
+.modal h2 {
+  margin-top: 0;
+  color: #333;
+  font-size: 22px;
+}
+
+.modal p {
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+/* Close Layout/Buttons */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.modal-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.modal-btn:hover {
+  background-color: #5a6268;
 }
 
 @media screen and (max-width: 768px) {

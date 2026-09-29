@@ -93,7 +93,9 @@ function createParty(partyId, guestData, simple = false) {
 
   guestData.sort((a, b) => a.sort_order - b.sort_order);
   guestData.forEach((guest) => {
-    partyForm.appendChild(createGuest(guest.full_name, guest.rsvp, simple));
+    partyForm.appendChild(
+      createGuest(guest.full_name, guest.is_plus_one, guest.rsvp, simple),
+    );
   });
   fieldset.appendChild(partyForm);
 
@@ -112,7 +114,7 @@ function createParty(partyId, guestData, simple = false) {
   return fieldset;
 }
 
-function createGuest(name, response = null, simple = true) {
+function createGuest(name, is_plus_one, response = null, simple = true) {
   const guestFieldset = document.createElement("fieldset");
   guestFieldset.classList.add("guest-fieldset");
 
@@ -120,11 +122,27 @@ function createGuest(name, response = null, simple = true) {
   guestDiv.classList.add("guest");
 
   const nameDiv = document.createElement("div");
-  nameDiv.textContent = name;
+  nameDiv.classList.add("guestName");
+
+  const nameContentDiv = document.createElement("div");
+  nameContentDiv.textContent = name;
+  nameDiv.appendChild(nameContentDiv);
 
   guestDiv.appendChild(nameDiv);
 
   if (!simple) {
+    if (is_plus_one) {
+      const editGuestBtn = document.createElement("button");
+      editGuestBtn.classList.add("btn-open");
+      editGuestBtn.id = "openModalBtn";
+      editGuestBtn.textContent = "Edit Name";
+      nameDiv.appendChild(editGuestBtn);
+      editGuestBtn.addEventListener("click", (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        openEditModal(nameContentDiv);
+      });
+    }
     const responseDiv = document.createElement("div");
     responseDiv.classList.add("guestResponse");
 
@@ -136,6 +154,55 @@ function createGuest(name, response = null, simple = true) {
   guestFieldset.appendChild(guestDiv);
 
   return guestFieldset;
+}
+
+function openEditModal(nameDiv) {
+  const modal = document.getElementById("customModal");
+  const closeBtn = document.getElementById("closeModalBtn");
+  const submitBtn = document.getElementById("modalSubmitBtn");
+  const newGuestInput = document.getElementById("newGuestName");
+  let newName = "";
+
+  modal.showModal();
+
+  // Enable submit btn if input has text
+  newGuestInput.addEventListener("input", (event) => {
+    if (event.target.value.trim().length > 0) {
+      submitBtn.disabled = false;
+      submitBtn.classList.add("modal-btn");
+      newName = event.target.value.trim();
+    } else {
+      submitBtn.classList.remove("modal-btn");
+    }
+  });
+
+  closeBtn.addEventListener("click", () => {
+    modal.close();
+  });
+
+  submitBtn.addEventListener("click", (e) => {
+    if (newName.length > 0) {
+      updateGuestName(nameDiv, newName);
+      modal.close();
+    }
+  });
+
+  modal.addEventListener("click", (e) => {
+    const dialogDimensions = modal.getBoundingClientRect();
+    if (
+      e.clientX < dialogDimensions.left ||
+      e.clientX > dialogDimensions.right ||
+      e.clientY < dialogDimensions.top ||
+      e.clientY > dialogDimensions.bottom
+    ) {
+      modal.close();
+    }
+  });
+}
+
+function updateGuestName(nameDiv, newName) {
+  nameDiv.textContent = newName;
+  // API
 }
 
 function createResponseRadio(guestName, responseOption, actualResponse) {
