@@ -269,6 +269,17 @@ fieldset {
   background-color: #5d613d;
 }
 
+.disabled-btn {
+  color: #0f0f0f;
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.disabled-btn:hover {
+  background-color: #a7a782;
+  opacity: 0.5;
+}
+
 @media screen and (max-width: 768px) {
   .container {
     width: 100%;

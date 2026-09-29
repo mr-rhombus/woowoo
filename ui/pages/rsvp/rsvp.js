@@ -193,10 +193,11 @@ function openEditModal(nameDiv, guestId) {
   newGuestInput.addEventListener("input", (event) => {
     if (event.target.value.trim().length > 0) {
       submitBtn.disabled = false;
-      submitBtn.classList.add("modal-btn");
+      submitBtn.classList.remove("disabled-btn");
       newName = event.target.value.trim();
     } else {
-      submitBtn.classList.remove("modal-btn");
+      submitBtn.disabled = true;
+      submitBtn.classList.add("disabled-btn");
     }
   });
 
