@@ -5,7 +5,7 @@ let lastScrollY = window.scrollY;
 if (nav) {
   window.addEventListener("scroll", () => {
     currentScrollY = window.scrollY;
-    if (homeBanner.classList.contains("is-active")) {
+    if (homeBanner?.classList.contains("is-active")) {
       nav.classList.add("banner-active");
     } else {
       nav.classList.remove("banner-active");
