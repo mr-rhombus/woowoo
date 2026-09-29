@@ -184,6 +184,7 @@ function openEditModal(nameDiv, guestId) {
   const closeBtn = document.getElementById("closeModalBtn");
   const submitBtn = document.getElementById("modalSubmitBtn");
   const newGuestInput = document.getElementById("newGuestName");
+  newGuestInput.value = nameDiv.textContent.trim();
   let newName = "";
 
   modal.showModal();
@@ -205,6 +206,7 @@ function openEditModal(nameDiv, guestId) {
 
   submitBtn.addEventListener("click", (e) => {
     if (newName.length > 0) {
+      nameDiv.textContent = newName;
       updateGuestName(nameDiv, newName, guestId);
       modal.close();
     }
@@ -224,7 +226,6 @@ function openEditModal(nameDiv, guestId) {
 }
 
 function updateGuestName(nameDiv, newName, guestId) {
-  nameDiv.textContent = newName;
   requestBody = { guest_id: guestId, full_name: newName };
   try {
     fetch(`${baseUrl}/api/update_guest`, {
