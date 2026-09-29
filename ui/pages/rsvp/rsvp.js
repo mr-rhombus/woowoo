@@ -144,12 +144,23 @@ function createGuest(
 
   if (!simple) {
     if (is_plus_one) {
-      const editGuestBtn = document.createElement("button");
-      editGuestBtn.classList.add("btn-open");
-      editGuestBtn.id = "openModalBtn";
-      editGuestBtn.textContent = "Edit Name";
-      nameDiv.appendChild(editGuestBtn);
-      editGuestBtn.addEventListener("click", (e) => {
+      nameDiv.classList.add("edit-guest");
+
+      const editGuestContainer = document.createElement("div");
+      editGuestContainer.classList.add("edit-guest-container");
+      editGuestContainer.id = "openModalBtn";
+
+      const editGuestIcon = document.createElement("img");
+      editGuestIcon.src = "/ui/assets/img/edit-outline.svg";
+      editGuestContainer.appendChild(editGuestIcon);
+
+      const editGuestText = document.createElement("div");
+      editGuestText.classList.add("edit-text");
+      editGuestText.textContent = "Edit";
+      editGuestContainer.appendChild(editGuestText);
+
+      nameDiv.appendChild(editGuestContainer);
+      editGuestContainer.addEventListener("click", (e) => {
         e.preventDefault();
         e.stopPropagation();
         openEditModal(nameContentDiv, guestId);

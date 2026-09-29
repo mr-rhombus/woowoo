@@ -144,25 +144,27 @@ fieldset {
   display: none;
 }
 
-/* Trigger Button */
-.btn-open {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  font-size: 16px;
-  font-weight: 600;
-  border-radius: 6px;
+.edit-guest {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.edit-guest-container {
+  display: flex;
+  height: 1.1rem;
   cursor: pointer;
-  transition: background 0.2s ease;
-  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.15);
+  border-bottom: 0.5px solid transparent;
 }
 
-.btn-open:hover {
-  background-color: #0056b3;
+.edit-guest-container:hover {
+  border-bottom: 0.5px solid black;
 }
 
-/* Modal Container */
+.edit-text {
+  font-size: 1rem;
+}
+
 .modal {
   border: none;
   border-radius: 12px;
@@ -170,19 +172,16 @@ fieldset {
   max-width: 450px;
   width: 90%;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-  /* Animation state when hidden */
   opacity: 0;
   transform: scale(0.9);
   transition: all 0.3s ease;
 }
 
-/* Modern way to animate native dialog open state */
 .modal[open] {
   opacity: 1;
   transform: scale(1);
 }
 
-/* Semi-transparent backdrop (Dim background) */
 .modal::backdrop {
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px); /* Subtle blur effect */
@@ -194,13 +193,11 @@ fieldset {
   opacity: 1;
 }
 
-/* Inner Content Padding */
 .modal-content {
   padding: 24px;
   position: relative;
 }
 
-/* Typography */
 .modal h2 {
   margin-top: 0;
   color: #333;
@@ -213,7 +210,6 @@ fieldset {
   margin-bottom: 24px;
 }
 
-/* Close Layout/Buttons */
 .modal-actions {
   display: flex;
   justify-content: flex-end;
