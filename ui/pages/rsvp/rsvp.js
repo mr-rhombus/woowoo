@@ -37,12 +37,7 @@ async function renderParties(event) {
       const partyGuests = result.guests.filter(
         (guest) => guest.group_id === partyId,
       );
-      const partyLastName = partyGuests.sort((a, b) =>
-        b.last_name.localeCompare(a.lastName),
-      )[0].last_name;
-      guestsDiv.appendChild(
-        createParty(partyLastName, partyId, partyGuests, true),
-      );
+      guestsDiv.appendChild(createParty(partyId, partyGuests, true));
     });
 
     if (result.guests.length == 0) {
@@ -81,7 +76,7 @@ async function updateRsvp(event) {
   }
 }
 
-function createParty(partyName, partyId, guestData, simple = false) {
+function createParty(partyId, guestData, simple = false) {
   const fieldset = document.createElement("fieldset");
 
   const legend = document.createElement("legend");
@@ -96,6 +91,7 @@ function createParty(partyName, partyId, guestData, simple = false) {
 
   fieldset.appendChild(legend);
 
+  guestData.sort((a, b) => a.sort_order - b.sort_order);
   guestData.forEach((guest) => {
     partyForm.appendChild(createGuest(guest.full_name, guest.rsvp, simple));
   });
@@ -106,7 +102,7 @@ function createParty(partyName, partyId, guestData, simple = false) {
   selectPartyBtn.id = partyId;
   selectPartyBtn.textContent = "Select Party";
   selectPartyBtn.addEventListener("click", (e) =>
-    renderPartyFull(e, partyName, partyId, guestData),
+    renderPartyFull(e, partyId, guestData),
   );
 
   if (simple) {
@@ -179,10 +175,10 @@ function createResponseRadio(guestName, responseOption, actualResponse) {
   return responseDiv;
 }
 
-function renderPartyFull(event, partyLastName, partyId, partyGuests) {
+function renderPartyFull(event, partyId, partyGuests) {
   guestsDiv.replaceChildren();
 
-  guestsDiv.appendChild(createParty(partyLastName, partyId, partyGuests));
+  guestsDiv.appendChild(createParty(partyId, partyGuests));
 
   rsvpBtn.style.display = "block";
 }
