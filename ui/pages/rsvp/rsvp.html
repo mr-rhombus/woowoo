@@ -36,23 +36,25 @@
     </div>
     <dialog class="modal" id="customModal">
       <div class="modal-content">
-        <h2>Modal Title</h2>
-        <p>
-          This is a lightweight, responsive modal styled with native CSS. It
-          cleanly dims the background and automatically centers itself on your
-          page.
-        </p>
-        <input
-          type="text"
-          name="newGuestName"
-          id="newGuestName"
-          placeholder="First Last"
-        />
-        <label for="newGuestName">Enter new guest name</label>
+        <h2>Update plus-one</h2>
+
+        <div class="input-group">
+          <div class="input-group-label">
+            <label for="newGuestName">Enter new guest name</label>
+          </div>
+          <input
+            type="text"
+            name="newGuestName"
+            id="newGuestName"
+            placeholder="First Last"
+          />
+        </div>
 
         <div class="modal-actions">
-          <button class="modal-btn" id="closeModalBtn">Dismiss</button>
-          <button class="submit-btn" id="modalSubmitBtn" disabled>
+          <button class="modal-btn cancel-btn" id="closeModalBtn">
+            Cancel
+          </button>
+          <button class="modal-btn submit-btn" id="modalSubmitBtn" disabled>
             Submit
           </button>
         </div>

@@ -184,7 +184,7 @@ fieldset {
 
 .modal::backdrop {
   background: rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(4px); /* Subtle blur effect */
+  backdrop-filter: blur(4px);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -202,32 +202,67 @@ fieldset {
   margin-top: 0;
   color: #333;
   font-size: 22px;
+  font-weight: 600;
 }
 
-.modal p {
-  color: #666;
-  line-height: 1.5;
-  margin-bottom: 24px;
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+}
+
+.input-group-label {
+  width: 70%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.modal input[type="text"] {
+  font-size: 0.9rem;
+  padding: 3px;
+  text-align: center;
+  height: 25px;
+  border-radius: 5px;
+  border: 1px solid black;
+  font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
+  width: 70%;
 }
 
 .modal-actions {
   display: flex;
   justify-content: flex-end;
   gap: 12px;
+  margin-top: 20px;
 }
 
 .modal-btn {
-  background-color: #6c757d;
   color: white;
   border: none;
   padding: 10px 18px;
   border-radius: 6px;
   cursor: pointer;
   font-weight: 500;
+  width: 75px;
 }
 
-.modal-btn:hover {
+.cancel-btn {
+  background-color: #6c757d;
+}
+
+.cancel-btn:hover {
   background-color: #5a6268;
+}
+
+.submit-btn {
+  background-color: #a7a782;
+}
+
+.submit-btn:hover {
+  background-color: #5d613d;
 }
 
 @media screen and (max-width: 768px) {
