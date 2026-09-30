@@ -9,14 +9,14 @@ body {
 
 .title {
   margin-top: 60px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   grid-row: 1;
   grid-column: 1;
   transition: margin-top 0.4s ease-in-out;
 }
 
 .banner.is-active + .title {
-  margin-top: calc(var(--banner-height) + 60px);
+  margin-top: calc(var(--banner-height) + 70px);
 }
 
 .logo {
@@ -96,7 +96,7 @@ a {
 
 .container-wrapper {
   display: grid;
-  grid-template-rows: minmax(105vh, 1fr);
+  grid-template-rows: minmax(110vh, 1fr);
 }
 
 .container {
