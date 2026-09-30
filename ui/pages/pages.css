@@ -59,7 +59,7 @@ body {
 }
 
 .nav.banner-active {
-  transform: translateY(60px);
+  transform: translateY(40px);
 }
 
 .nav-active {

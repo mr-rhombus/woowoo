@@ -1,5 +1,5 @@
 :root {
-  --banner-height: 60px;
+  --banner-height: 40px;
 }
 
 body {
@@ -9,14 +9,14 @@ body {
 
 .title {
   margin-top: 60px;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   grid-row: 1;
   grid-column: 1;
   transition: margin-top 0.4s ease-in-out;
 }
 
 .banner.is-active + .title {
-  margin-top: calc(var(--banner-height) + 20px);
+  margin-top: calc(var(--banner-height) + 60px);
 }
 
 .logo {
@@ -99,6 +99,7 @@ a {
   margin: 0;
   padding-bottom: 15px;
   color: #f2f0ef;
+  padding-bottom: 5%;
 }
 
 .banner {
