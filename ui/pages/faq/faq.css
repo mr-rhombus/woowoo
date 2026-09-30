@@ -49,6 +49,7 @@ details summary {
   padding: 20px 5px;
 
   display: grid;
+  gap: 5px;
   grid-template-columns: 1fr auto;
   align-items: center;
 
