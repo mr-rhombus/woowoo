@@ -106,7 +106,7 @@ fieldset {
 }
 
 .guest-detailed {
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 2fr 3fr;
 }
 
 .guest-fieldset {
