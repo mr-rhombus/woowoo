@@ -9,6 +9,7 @@ findPartyBtn.addEventListener("click", renderParties);
 
 const rsvpBtn = document.getElementById("rsvp");
 const submitBtn = document.getElementById("modalSubmitBtn");
+const validFormDiv = document.querySelector(".validation-warning");
 
 const guestsDiv = document.querySelector(".guests");
 
@@ -150,6 +151,9 @@ function createGuest(
   if (!name.includes(" ") || name.toLowerCase().strip === "guest") {
     rsvpBtn.disabled = true;
     rsvpBtn.classList.add("disabled-btn");
+    if (!simple) {
+      validFormDiv.style.opacity = 1;
+    }
   }
 
   if (!simple) {
@@ -262,9 +266,11 @@ function updateGuestName(newName, guestId) {
   if (newName.includes(" ") && newName.toLowerCase().trim() !== "guest") {
     rsvpBtn.disabled = false;
     rsvpBtn.classList.remove("disabled-btn");
+    validFormDiv.style.opacity = 0;
   } else {
     rsvpBtn.disabled = true;
     rsvpBtn.classList.add("disabled-btn");
+    validFormDiv.style.opacity = 1;
   }
 }
 
