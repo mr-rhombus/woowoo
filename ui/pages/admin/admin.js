@@ -8,6 +8,7 @@ const baseUrl =
 const TABLE_COLUMNS = ["Name", "RSVP"];
 
 const containerEl = document.querySelector(".container");
+const tableWrapper = document.querySelector(".table-wrapper");
 
 // Force page reload when navigating using back/fwd arrows
 window.addEventListener("pageshow", (event) => {
@@ -60,6 +61,7 @@ async function checkPassword(event) {
   if (isValid) {
     const pwdDivEl = document.querySelector(".pwd-div");
     pwdDivEl.replaceChildren();
+    tableWrapper.style.display = "block";
     renderTable();
   } else {
     submitBtn.blur();
@@ -83,7 +85,7 @@ async function renderTable() {
   });
   const result = await response.json();
 
-  containerEl.appendChild(createTable(result.guests, TABLE_COLUMNS));
+  tableWrapper.appendChild(createTable(result.guests, TABLE_COLUMNS));
 }
 
 function createTable(guests, columns) {
