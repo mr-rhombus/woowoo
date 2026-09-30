@@ -91,11 +91,12 @@ details[open] summary::after {
 
 .img-container {
   width: 100%;
-  margin-top: 50px;
+  margin: 50px 0 5px 0;
 }
 
 .img-container img {
   width: 100%;
+  opacity: 0.5;
 }
 
 @media screen and (max-width: 768px) {
@@ -114,5 +115,8 @@ details[open] summary::after {
   }
   .question-title {
     font-size: 1.6rem;
+  }
+  .img-container {
+    display: none;
   }
 }
