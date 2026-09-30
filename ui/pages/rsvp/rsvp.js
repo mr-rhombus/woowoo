@@ -8,6 +8,7 @@ const findPartyBtn = document.getElementById("findPartyBtn");
 findPartyBtn.addEventListener("click", renderParties);
 
 const rsvpBtn = document.getElementById("rsvp");
+const submitBtn = document.getElementById("modalSubmitBtn");
 
 const guestsDiv = document.querySelector(".guests");
 
@@ -144,6 +145,13 @@ function createGuest(
   nameDiv.appendChild(nameContentDiv);
 
   guestDiv.appendChild(nameDiv);
+
+  // Force guests with unnamed plus-ones to name them
+  if (!name.includes(" ") || name.toLowerCase().strip === "guest") {
+    rsvpBtn.disabled = true;
+    rsvpBtn.classList.add("disabled-btn");
+  }
+
   if (!simple) {
     guestDiv.classList.add("guest-detailed");
     if (is_plus_one) {
@@ -185,7 +193,6 @@ function createGuest(
 function openEditModal(nameDiv, guestId) {
   const modal = document.getElementById("customModal");
   const closeBtn = document.getElementById("closeModalBtn");
-  const submitBtn = document.getElementById("modalSubmitBtn");
   const newGuestInput = document.getElementById("newGuestName");
   newGuestInput.value = nameDiv.textContent.trim();
   let newName = "";
@@ -250,6 +257,14 @@ function updateGuestName(newName, guestId) {
     });
   } catch (error) {
     console.error("Error:", error);
+  }
+
+  if (newName.includes(" ") && newName.toLowerCase().trim() !== "guest") {
+    rsvpBtn.disabled = false;
+    rsvpBtn.classList.remove("disabled-btn");
+  } else {
+    rsvpBtn.disabled = true;
+    rsvpBtn.classList.add("disabled-btn");
   }
 }
 

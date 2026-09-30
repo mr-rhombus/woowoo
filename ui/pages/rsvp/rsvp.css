@@ -269,15 +269,26 @@ fieldset {
   background-color: #5d613d;
 }
 
-.disabled-btn {
+.disabled-btn,
+.btn-container button.disabled-btn#rsvp {
   color: #0f0f0f;
   cursor: not-allowed;
-  opacity: 0.5;
+  opacity: 0.3;
 }
 
-.disabled-btn:hover {
+.disabled-btn:hover,
+.btn-container button.disabled-btn#rsvp:hover {
   background-color: #a7a782;
-  opacity: 0.5;
+  border: 1px solid #a7a782;
+  cursor: not-allowed;
+  opacity: 0.3;
+}
+
+.btn-container button.disabled-btn#rsvp:active {
+  background-color: #a7a782;
+  border: 1px solid #a7a782;
+  cursor: not-allowed;
+  opacity: 0.3;
 }
 
 @media screen and (max-width: 768px) {
