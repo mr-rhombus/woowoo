@@ -400,4 +400,12 @@ fieldset {
     width: 70%;
     text-align: center;
   }
+
+  .edit-text {
+    font-size: 0.8rem;
+  }
+
+  .edit-guest {
+    gap: 10px;
+  }
 }
