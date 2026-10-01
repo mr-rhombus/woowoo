@@ -379,6 +379,8 @@ fieldset {
 
   .guestResponse {
     display: flex;
+    flex-direction: column;
+    gap: 5px;
     justify-content: flex-start;
     margin: 5px 0 5px 5px;
   }
