@@ -171,6 +171,7 @@ fieldset {
 
 .modal {
   border: none;
+  background-color: #f2f0ef;
   border-radius: 12px;
   padding: 0;
   max-width: 450px;
@@ -227,6 +228,7 @@ fieldset {
 
 .modal input[type="text"] {
   font-size: 0.9rem;
+  background-color: #dad4d2;
   padding: 3px;
   text-align: center;
   height: 25px;
@@ -386,5 +388,14 @@ fieldset {
     height: 30px;
     border-radius: 8px;
     margin-top: 10px;
+  }
+
+  .modal {
+    max-width: 80%;
+  }
+
+  .validation-warning {
+    width: 70%;
+    text-align: center;
   }
 }
