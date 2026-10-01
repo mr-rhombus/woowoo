@@ -102,7 +102,7 @@ details[open] summary::after {
 
 @media screen and (max-width: 768px) {
   .container {
-    margin: 40px 7% 0 7%;
+    margin: 40px 7% 60px 7%;
     width: 80%;
   }
   details {
