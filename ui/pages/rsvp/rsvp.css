@@ -377,7 +377,8 @@ fieldset {
 
   .guestResponse {
     display: flex;
-    margin: 5px 0;
+    justify-content: flex-start;
+    margin: 5px 0 5px 5px;
   }
 
   .select-party-btn {
