@@ -5,7 +5,6 @@ const baseUrl =
     : "https://williams-diamond.com";
 
 const findPartyBtn = document.getElementById("findPartyBtn");
-findPartyBtn.addEventListener("click", renderParties);
 
 const rsvpBtn = document.getElementById("rsvp");
 const submitBtn = document.getElementById("modalSubmitBtn");
@@ -13,10 +12,16 @@ const validFormDiv = document.querySelector(".validation-warning");
 
 const guestsDiv = document.querySelector(".guests");
 
+findPartyBtn.addEventListener("click", renderParties);
+
 async function renderParties(event) {
   event.preventDefault();
 
+  // Reset form state
+  enableRsvpBtn();
   guestsDiv.replaceChildren();
+  rsvpBtn.style.display = "none";
+  validFormDiv.style.display = "none";
 
   const fullNameElement = document.getElementById("fullName");
   const fullNameVal = fullNameElement.value.trim();
@@ -149,10 +154,9 @@ function createGuest(
 
   // Force guests with unnamed plus-ones to name them
   if (!name.includes(" ") || name.toLowerCase().strip === "guest") {
-    rsvpBtn.disabled = true;
-    rsvpBtn.classList.add("disabled-btn");
+    disableRsvpBtn();
     if (!simple) {
-      validFormDiv.style.opacity = 1;
+      validFormDiv.style.display = "block";
     }
   }
 
@@ -264,13 +268,11 @@ function updateGuestName(newName, guestId) {
   }
 
   if (newName.includes(" ") && newName.toLowerCase().trim() !== "guest") {
-    rsvpBtn.disabled = false;
-    rsvpBtn.classList.remove("disabled-btn");
-    validFormDiv.style.opacity = 0;
+    enableRsvpBtn();
+    validFormDiv.style.display = "none";
   } else {
-    rsvpBtn.disabled = true;
-    rsvpBtn.classList.add("disabled-btn");
-    validFormDiv.style.opacity = 1;
+    disableRsvpBtn();
+    validFormDiv.style.display = "block";
   }
 }
 
@@ -321,4 +323,14 @@ function renderPartyFull(event, partyId, partyGuests) {
   });
 
   rsvpBtn.style.display = "block";
+}
+
+function enableRsvpBtn() {
+  rsvpBtn.disabled = false;
+  rsvpBtn.classList.remove("disabled-btn");
+}
+
+function disableRsvpBtn() {
+  rsvpBtn.disabled = true;
+  rsvpBtn.classList.add("disabled-btn");
 }

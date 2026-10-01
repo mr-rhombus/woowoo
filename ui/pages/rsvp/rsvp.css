@@ -296,7 +296,7 @@ fieldset {
 }
 
 .validation-warning {
-  opacity: 0;
+  display: none;
   font-size: 0.9rem;
   color: #cd1c18;
   border: 0.5px solid #cd1c18;
