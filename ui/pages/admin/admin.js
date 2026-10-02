@@ -5,7 +5,7 @@ const baseUrl =
   window.location.hostname === "127.0.0.1"
     ? "http://localhost:8000"
     : "https://williams-diamond.com";
-const TABLE_COLUMNS = ["Name", "RSVP"];
+const TABLE_COLUMNS = ["Name", "RSVP", "Group"];
 
 const containerEl = document.querySelector(".container");
 const tableWrapper = document.querySelector(".table-wrapper");
@@ -99,9 +99,8 @@ function createTable(guests, columns) {
   tableEl.appendChild(theadEl);
 
   const tbodyEl = document.createElement("tbody");
-  guests.forEach((guest) =>
-    tbodyEl.appendChild(createRow(guest.full_name, guest.rsvp)),
-  );
+  guests.sort((a, b) => a.group_id - b.group_id || a.sort_order - b.sort_order);
+  guests.forEach((guest) => tbodyEl.appendChild(createRow(guest)));
   tableEl.appendChild(tbodyEl);
 
   return tableEl;
@@ -115,14 +114,14 @@ function createColumn(name) {
   return thEl;
 }
 
-function createRow(name, rsvp) {
+function createRow(guest) {
   const rowEl = document.createElement("tr");
 
   const nameEl = document.createElement("td");
-  nameEl.textContent = name;
+  nameEl.textContent = guest.full_name;
 
   const rsvpEl = document.createElement("td");
-  switch ((rsvp ?? "").toLowerCase()) {
+  switch ((guest.rsvp ?? "").toLowerCase()) {
     case "y":
       rsvpEl.textContent = "✅";
       break;
@@ -133,8 +132,12 @@ function createRow(name, rsvp) {
       rsvpEl.textContent = "N/A";
   }
 
+  const groupEl = document.createElement("td");
+  groupEl.textContent = guest.group_id;
+
   rowEl.appendChild(nameEl);
   rowEl.appendChild(rsvpEl);
+  rowEl.appendChild(groupEl);
 
   return rowEl;
 }
