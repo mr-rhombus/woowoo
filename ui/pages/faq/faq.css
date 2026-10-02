@@ -100,6 +100,17 @@ details[open] summary::after {
   opacity: 0.5;
 }
 
+p > a {
+  text-decoration: none;
+  color: #5d613d;
+  font-weight: 600;
+}
+
+p > a:hover {
+  color: #182825;
+  border-bottom: 1px solid #182825;
+}
+
 @media screen and (max-width: 768px) {
   .container {
     margin: 40px 7% 60px 7%;
