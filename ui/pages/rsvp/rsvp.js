@@ -203,7 +203,7 @@ function openEditModal(nameDiv, guestId) {
   const closeBtn = document.getElementById("closeModalBtn");
   const newGuestInput = document.getElementById("newGuestName");
   newGuestInput.value = nameDiv.textContent.trim();
-  let newName = "";
+  let newName = nameDiv.textContent;
 
   modal.showModal();
 
